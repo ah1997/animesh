@@ -1,179 +1,179 @@
 <!DOCTYPE html>
--    <html>
--    <head>
--        <title>My Portfolio</title>
--    </head>
--    <body>
--        <h1>Welcome to my website!</h1>
--        <p>I am Animesh HAzra.</p>
--    </body>
--    </html>
-+<html lang="en">
-+  <head>
-+    <meta charset="UTF-8" />
-+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-+    <title>Animesh | Research & Personal Journey</title>
-+    <link rel="preconnect" href="https://fonts.googleapis.com" />
-+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-+    <link
-+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap"
-+      rel="stylesheet"
-+    />
-+    <link rel="stylesheet" href="styles.css" />
-+  </head>
-+  <body>
-+    <header class="hero">
-+      <nav class="top-nav">
-+        <div class="brand">Animesh Hazra</div>
-+        <a href="#portal" class="btn btn-outline">Personal Portal</a>
-+      </nav>
-+      <div class="hero-content container">
-+        <p class="chip">PhD Completed • Academic Researcher</p>
-+        <h1>Exploring Ideas, Cultures, and Meaningful Memories.</h1>
-+        <p class="lead">
-+          Welcome to my personal website—a blend of my academic research activity,
-+          travel experiences, and day-to-day reflections.
-+        </p>
-+        <div class="hero-actions">
-+          <a class="btn" href="#research">View Research</a>
-+          <a class="btn btn-ghost" href="#travel">Travel Memories</a>
-+        </div>
-+      </div>
-+    </header>
-+
-+    <main>
-+      <section id="research" class="section container">
-+        <h2>Research Activity</h2>
-+        <div class="grid cards-3">
-+          <article class="card">
-+            <h3>Post-PhD Focus</h3>
-+            <p>
-+              Investigating impactful, interdisciplinary questions with strong
-+              real-world relevance and long-term social value.
-+            </p>
-+          </article>
-+          <article class="card">
-+            <h3>Current Themes</h3>
-+            <p>
-+              Data-driven discovery, research communication, and collaborative
-+              problem-solving across domains.
-+            </p>
-+          </article>
-+          <article class="card">
-+            <h3>Academic Mission</h3>
-+            <p>
-+              Building rigorous knowledge while mentoring students and sharing
-+              accessible, reproducible research practices.
-+            </p>
-+          </article>
-+        </div>
-+      </section>
-+
-+      <section id="travel" class="section section-alt">
-+        <div class="container">
-+          <h2>Travel Experience & Memories</h2>
-+          <p class="section-intro">
-+            Every journey has given me a deeper understanding of people,
-+            perspectives, and place. Here are highlights from my personal
-+            travel memory wall.
-+          </p>
-+          <div class="timeline">
-+            <div class="timeline-item">
-+              <h3>Mountain Retreat</h3>
-+              <p>
-+                A reflective journey in the hills where long walks inspired new
-+                research ideas and personal clarity.
-+              </p>
-+            </div>
-+            <div class="timeline-item">
-+              <h3>Historic City Exploration</h3>
-+              <p>
-+                Museum visits, local archives, and cultural conversations that
-+                shaped my view on knowledge and heritage.
-+              </p>
-+            </div>
-+            <div class="timeline-item">
-+              <h3>Coastal Escape</h3>
-+              <p>
-+                Quiet mornings by the sea and handwritten notes about growth,
-+                gratitude, and future goals.
-+              </p>
-+            </div>
-+          </div>
-+        </div>
-+      </section>
-+
-+      <section id="portal" class="section container">
-+        <h2>Personal Portal</h2>
-+        <p class="section-intro">
-+          Login to access private resources: LaTeX portal, personal diary notes,
-+          daily experiences, and more.
-+        </p>
-+
-+        <div class="portal-layout">
-+          <form id="loginForm" class="card login-card" autocomplete="off">
-+            <h3>Portal Login</h3>
-+            <label for="username">User Name</label>
-+            <input id="username" name="username" type="text" placeholder="Enter user name" required />
-+
-+            <label for="password">Password</label>
-+            <input id="password" name="password" type="password" placeholder="Enter password" required />
-+
-+            <button type="submit" class="btn">Sign In</button>
-+            <p id="loginMsg" class="login-msg"></p>
-+            <p class="hint">Demo credentials: <strong>animesh</strong> / <strong>research@123</strong></p>
-+          </form>
-+
-+          <div id="portalContent" class="card portal-content hidden">
-+            <h3>Welcome to your Private Portal</h3>
-+            <div class="grid cards-2">
-+              <div class="mini-card">
-+                <h4>LaTeX Portal</h4>
-+                <p>Store paper drafts, templates, and bibliography workflows.</p>
-+              </div>
-+              <div class="mini-card">
-+                <h4>Personal Diary Notes</h4>
-+                <p>Capture reflections, emotions, and key personal milestones.</p>
-+              </div>
-+              <div class="mini-card">
-+                <h4>Daily Experience Log</h4>
-+                <p>Track daily moments, observations, and lessons learned.</p>
-+              </div>
-+              <div class="mini-card">
-+                <h4>Secure Archive</h4>
-+                <p>Maintain private documents and memory snapshots in one place.</p>
-+              </div>
-+            </div>
-+          </div>
-+        </div>
-+      </section>
-+    </main>
-+
-+    <footer class="footer">
-+      <p>© 2026 Animesh Hazra • Researcher • Traveler • Lifelong Learner</p>
-+    </footer>
-+
-+    <script>
-+      const loginForm = document.getElementById('loginForm');
-+      const loginMsg = document.getElementById('loginMsg');
-+      const portalContent = document.getElementById('portalContent');
-+
-+      loginForm.addEventListener('submit', function (event) {
-+        event.preventDefault();
-+
-+        const username = document.getElementById('username').value.trim();
-+        const password = document.getElementById('password').value;
-+
-+        if (username === 'animesh' && password === 'research@123') {
-+          loginMsg.textContent = 'Login successful.';
-+          loginMsg.className = 'login-msg success';
-+          portalContent.classList.remove('hidden');
-+        } else {
-+          loginMsg.textContent = 'Invalid username or password.';
-+          loginMsg.className = 'login-msg error';
-+          portalContent.classList.add('hidden');
-+        }
-+      });
-+    </script>
-+  </body>
-+</html>
+   <html>
+   <head>
+       <title>My Portfolio</title>
+   </head>
+   <body>
+       <h1>Welcome to my website!</h1>
+       <p>I am Animesh HAzra.</p>
+   </body>
+   </html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animesh | Research & Personal Journey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+   <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+ </head>
+  <body>
+    <header class="hero">
+      <nav class="top-nav">
+        <div class="brand">Animesh Hazra</div>
+        <a href="#portal" class="btn btn-outline">Personal Portal</a>
+      </nav>
+      <div class="hero-content container">
+        <p class="chip">PhD Completed • Academic Researcher</p>
+        <h1>Exploring Ideas, Cultures, and Meaningful Memories.</h1>
+        <p class="lead">
+          Welcome to my personal website—a blend of my academic research activity,
+          travel experiences, and day-to-day reflections.
+       </p>
+       <div class="hero-actions">
+          <a class="btn" href="#research">View Research</a>
+          <a class="btn btn-ghost" href="#travel">Travel Memories</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="research" class="section container">
+        <h2>Research Activity</h2>
+        <div class="grid cards-3">
+          <article class="card">
+            <h3>Post-PhD Focus</h3>
+            <p>
+              Investigating impactful, interdisciplinary questions with strong
+              real-world relevance and long-term social value.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Current Themes</h3>
+            <p>
+              Data-driven discovery, research communication, and collaborative
+              problem-solving across domains.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Academic Mission</h3>
+            <p>
+              Building rigorous knowledge while mentoring students and sharing
+              accessible, reproducible research practices.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="travel" class="section section-alt">
+        <div class="container">
+         <h2>Travel Experience & Memories</h2>
+          <p class="section-intro">
+            Every journey has given me a deeper understanding of people,
+            perspectives, and place. Here are highlights from my personal
+            travel memory wall.
+          </p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h3>Mountain Retreat</h3>
+              <p>
+                A reflective journey in the hills where long walks inspired new
+                research ideas and personal clarity.
+              </p>
+            </div>
+            <div class="timeline-item">
+              <h3>Historic City Exploration</h3>
+              <p>
+                Museum visits, local archives, and cultural conversations that
+                shaped my view on knowledge and heritage.
+              </p>
+            </div>
+            <div class="timeline-item">
+              <h3>Coastal Escape</h3>
+              <p>
+                Quiet mornings by the sea and handwritten notes about growth,
+                gratitude, and future goals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="portal" class="section container">
+        <h2>Personal Portal</h2>
+        <p class="section-intro">
+          Login to access private resources: LaTeX portal, personal diary notes,
+          daily experiences, and more.
+        </p>
+
+        <div class="portal-layout">
+          <form id="loginForm" class="card login-card" autocomplete="off">
+            <h3>Portal Login</h3>
+            <label for="username">User Name</label>
+            <input id="username" name="username" type="text" placeholder="Enter user name" required />
+
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="Enter password" required />
+
+            <button type="submit" class="btn">Sign In</button>
+            <p id="loginMsg" class="login-msg"></p>
+            <p class="hint">Demo credentials: <strong>animesh</strong> / <strong>research@123</strong></p>
+          </form>
+
+          <div id="portalContent" class="card portal-content hidden">
+            <h3>Welcome to your Private Portal</h3>
+            <div class="grid cards-2">
+              <div class="mini-card">
+                <h4>LaTeX Portal</h4>
+                <p>Store paper drafts, templates, and bibliography workflows.</p>
+              </div>
+              <div class="mini-card">
+                <h4>Personal Diary Notes</h4>
+                <p>Capture reflections, emotions, and key personal milestones.</p>
+              </div>
+              <div class="mini-card">
+                <h4>Daily Experience Log</h4>
+                <p>Track daily moments, observations, and lessons learned.</p>
+              </div>
+              <div class="mini-card">
+                <h4>Secure Archive</h4>
+                <p>Maintain private documents and memory snapshots in one place.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Animesh Hazra • Researcher • Traveler • Lifelong Learner</p>
+    </footer>
+
+    <script>
+      const loginForm = document.getElementById('loginForm');
+      const loginMsg = document.getElementById('loginMsg');
+      const portalContent = document.getElementById('portalContent');
+
+      loginForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+
+        if (username === 'animesh' && password === 'research@123') {
+          loginMsg.textContent = 'Login successful.';
+          loginMsg.className = 'login-msg success';
+          portalContent.classList.remove('hidden');
+        } else {
+          loginMsg.textContent = 'Invalid username or password.';
+          loginMsg.className = 'login-msg error';
+        portalContent.classList.add('hidden');
+       }
+      });
+    </script>
+  </body>
+</html>
