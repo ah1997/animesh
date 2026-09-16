@@ -1,313 +1,1221 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Animesh | Research & Personal Journey</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="hero">
-      <nav class="top-nav">
-        <div class="brand">Animesh Hazra</div>
-        <a href="#portal" class="btn btn-outline">Personal Portal</a>
-      </nav>
-      <div class="hero-content container">
-        <p class="chip">PhD Completed • Academic Researcher</p>
-        <h1>Exploring Ideas, Cultures, and Meaningful Memories.</h1>
-        <p class="lead">
-          Welcome to my personal website—a blend of my academic research activity,
-          travel experiences, and day-to-day reflections.
-        </p>
-        <div class="hero-actions">
-          <a class="btn" href="#research">View Research</a>
-          <a class="btn btn-ghost" href="#travel">Travel Memories</a>
+<html lang="en" data-theme="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Animesh Hazra — Statistical Physics</title>
+<meta name="description" content="Animesh Hazra — YST Fellow at the Asia Pacific Center for Theoretical Physics (APCTP), Pohang, Korea. Nonequilibrium statistical mechanics, mass transport processes, hyperuniformity and hydrodynamics of driven many-particle systems.">
+<meta name="author" content="Animesh Hazra">
+<link rel="canonical" href="https://animeshhazra.github.io/">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Animesh Hazra — Statistical Physics">
+<meta property="og:description" content="YST Fellow, Asia Pacific Center for Theoretical Physics. Nonequilibrium statistical mechanics, mass transport processes and hyperuniformity.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@animeshhz">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-family='Georgia,serif'%3E%E2%9A%9B%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   1. DESIGN TOKENS
+   ============================================================ */
+:root{
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+
+  --maxw:1120px;
+  --radius:14px;
+  --radius-sm:8px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+
+  /* Light theme (default) */
+  --bg:#FBFAF7;
+  --bg-alt:#F3F1EC;
+  --surface:#FFFFFF;
+  --surface-2:#F7F5F1;
+  --text:#16161C;
+  --text-2:#3E3E48;
+  --muted:#6A6A78;
+  --border:rgba(22,22,28,.10);
+  --border-strong:rgba(22,22,28,.18);
+  --accent:#96162B;
+  --accent-soft:rgba(150,22,43,.09);
+  --accent-2:#6E7F24;
+  --accent-2-soft:rgba(110,127,36,.12);
+  --shadow:0 1px 2px rgba(20,20,30,.05),0 8px 26px -12px rgba(20,20,30,.16);
+  --shadow-lg:0 2px 6px rgba(20,20,30,.06),0 24px 54px -22px rgba(20,20,30,.26);
+  --dot:rgba(150,22,43,.55);
+  --line:rgba(22,22,28,.16);
+  --scrim:rgba(251,250,247,.78);
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --bg:#0C0E13;
+  --bg-alt:#11141B;
+  --surface:#151922;
+  --surface-2:#1B2029;
+  --text:#EDEDF2;
+  --text-2:#C8CAD4;
+  --muted:#939AAA;
+  --border:rgba(255,255,255,.10);
+  --border-strong:rgba(255,255,255,.20);
+  --accent:#F2637D;
+  --accent-soft:rgba(242,99,125,.13);
+  --accent-2:#BACF5E;
+  --accent-2-soft:rgba(186,207,94,.14);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -14px rgba(0,0,0,.7);
+  --shadow-lg:0 2px 8px rgba(0,0,0,.45),0 28px 60px -24px rgba(0,0,0,.8);
+  --dot:rgba(242,99,125,.6);
+  --line:rgba(255,255,255,.16);
+  --scrim:rgba(12,14,19,.76);
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:dark){
+  :root[data-theme="auto"]{
+    --bg:#0C0E13; --bg-alt:#11141B; --surface:#151922; --surface-2:#1B2029;
+    --text:#EDEDF2; --text-2:#C8CAD4; --muted:#939AAA;
+    --border:rgba(255,255,255,.10); --border-strong:rgba(255,255,255,.20);
+    --accent:#F2637D; --accent-soft:rgba(242,99,125,.13);
+    --accent-2:#BACF5E; --accent-2-soft:rgba(186,207,94,.14);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -14px rgba(0,0,0,.7);
+    --shadow-lg:0 2px 8px rgba(0,0,0,.45),0 28px 60px -24px rgba(0,0,0,.8);
+    --dot:rgba(242,99,125,.6); --line:rgba(255,255,255,.16); --scrim:rgba(12,14,19,.76);
+    color-scheme:dark;
+  }
+}
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:86px;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--font-body);font-size:16.5px;line-height:1.68;
+  font-weight:400;letter-spacing:-.008em;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+  transition:background-color .35s var(--ease),color .35s var(--ease);
+}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.14;letter-spacing:-.022em;margin:0}
+p{margin:0 0 1em}
+a{color:var(--accent);text-decoration:none;transition:color .2s,opacity .2s}
+a:hover{color:var(--text)}
+img{max-width:100%;display:block}
+::selection{background:var(--accent);color:#fff}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.mono{font-family:var(--font-mono);font-size:.78em;letter-spacing:.02em}
+
+/* ============================================================
+   3. NAVIGATION
+   ============================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  backdrop-filter:blur(14px) saturate(1.5);-webkit-backdrop-filter:blur(14px) saturate(1.5);
+  background:var(--scrim);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,background-color .35s var(--ease);
+}
+.nav.scrolled{border-bottom-color:var(--border)}
+.nav-in{display:flex;align-items:center;gap:18px;height:64px;max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.brand{
+  font-family:var(--font-display);font-weight:600;font-size:1.06rem;
+  color:var(--text);letter-spacing:-.02em;white-space:nowrap;margin-right:auto;
+}
+.brand span{color:var(--accent)}
+.nav-links{display:flex;gap:2px;list-style:none;margin:0;padding:0}
+.nav-links a{
+  display:block;padding:7px 12px;border-radius:99px;
+  font-size:.87rem;font-weight:500;color:var(--muted);letter-spacing:-.005em;
+  transition:color .2s,background-color .2s;
+}
+.nav-links a:hover{color:var(--text);background:var(--surface-2)}
+.nav-links a.active{color:var(--accent);background:var(--accent-soft)}
+
+.icon-btn{
+  flex:none;display:grid;place-items:center;width:38px;height:38px;
+  border:1px solid var(--border);border-radius:99px;background:var(--surface);
+  color:var(--text-2);cursor:pointer;padding:0;
+  transition:border-color .2s,color .2s,transform .2s var(--ease),background-color .2s;
+}
+.icon-btn:hover{border-color:var(--border-strong);color:var(--accent);transform:translateY(-1px)}
+.icon-btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.sun{display:none}
+:root[data-theme="dark"] .sun{display:block}
+:root[data-theme="dark"] .moon{display:none}
+@media (prefers-color-scheme:dark){
+  :root[data-theme="auto"] .sun{display:block}
+  :root[data-theme="auto"] .moon{display:none}
+}
+#menuBtn{display:none}
+
+/* ============================================================
+   4. HERO
+   ============================================================ */
+.hero{position:relative;padding:150px 0 92px;overflow:hidden}
+#lattice{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
+:root[data-theme="dark"] #lattice{opacity:.62}
+.hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 80% at 50% 0%,transparent 35%,var(--bg) 88%);
+}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:clamp(28px,5vw,64px);align-items:center}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;
+  padding:6px 14px 6px 10px;border:1px solid var(--border);border-radius:99px;
+  background:var(--surface);box-shadow:var(--shadow);
+  font-size:.775rem;font-weight:500;color:var(--text-2);letter-spacing:.005em;
+}
+.pulse{width:7px;height:7px;border-radius:99px;background:var(--accent-2);position:relative;flex:none}
+.pulse::after{content:'';position:absolute;inset:0;border-radius:99px;background:var(--accent-2);animation:ping 2.4s var(--ease) infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.7}70%,100%{transform:scale(3.2);opacity:0}}
+
+h1.name{font-size:clamp(2.9rem,7.6vw,5.1rem);font-weight:600;letter-spacing:-.035em;margin-bottom:.22em}
+h1.name em{font-style:italic;color:var(--accent);font-weight:500}
+.role{font-size:clamp(1.02rem,2.1vw,1.24rem);color:var(--text-2);max-width:40ch;margin-bottom:.55em;font-weight:450}
+.role strong{color:var(--text);font-weight:600}
+.tagline{color:var(--muted);max-width:52ch;font-size:1rem;margin-bottom:2em}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:11px;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:11px 20px;border-radius:99px;font-size:.9rem;font-weight:550;
+  border:1px solid transparent;cursor:pointer;letter-spacing:-.005em;
+  transition:transform .22s var(--ease),box-shadow .22s var(--ease),background-color .2s,border-color .2s,color .2s;
+}
+.btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:var(--shadow)}
+.btn-primary:hover{color:#fff;transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn-ghost{background:var(--surface);color:var(--text);border-color:var(--border)}
+.btn-ghost:hover{color:var(--text);border-color:var(--border-strong);transform:translateY(-2px);box-shadow:var(--shadow)}
+
+/* Portrait */
+.portrait-wrap{position:relative;flex:none}
+.portrait{
+  width:clamp(160px,22vw,236px);aspect-ratio:1;border-radius:50%;
+  object-fit:cover;background:var(--surface-2);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-lg);
+  position:relative;z-index:2;
+}
+.portrait-fallback{
+  width:clamp(160px,22vw,236px);aspect-ratio:1;border-radius:50%;
+  display:grid;place-items:center;text-align:center;
+  background:linear-gradient(150deg,var(--surface-2),var(--surface));
+  border:1px dashed var(--border-strong);color:var(--muted);
+  font-size:.74rem;line-height:1.5;padding:22px;box-shadow:var(--shadow);
+}
+.portrait-fallback b{display:block;font-family:var(--font-display);font-size:1.9rem;color:var(--accent);font-weight:600;margin-bottom:6px}
+.ring{
+  position:absolute;inset:-14px;border-radius:50%;
+  border:1px solid var(--border);
+  animation:spin 26s linear infinite;
+}
+.ring::before{content:'';position:absolute;top:-3.5px;left:50%;width:7px;height:7px;margin-left:-3.5px;border-radius:99px;background:var(--accent)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Stat strip */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  margin-top:74px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+  position:relative;z-index:2;
+}
+.stat{background:var(--bg);padding:20px 18px;transition:background-color .25s}
+.stat:hover{background:var(--surface)}
+.stat b{display:block;font-family:var(--font-display);font-size:1.85rem;font-weight:600;letter-spacing:-.03em;color:var(--accent)}
+.stat span{font-size:.775rem;color:var(--muted);letter-spacing:.018em;text-transform:uppercase;font-weight:500}
+
+/* ============================================================
+   5. SECTIONS
+   ============================================================ */
+section{padding:88px 0;position:relative}
+.band{background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sec-head{margin-bottom:44px;max-width:62ch}
+.kicker{
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;
+  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);font-weight:500;
+}
+.kicker::after{content:'';flex:1;height:1px;background:var(--border);max-width:120px}
+.sec-head h2{font-size:clamp(1.85rem,4vw,2.55rem);margin-bottom:.4em}
+.sec-head p{color:var(--muted);font-size:1.02rem;margin:0}
+
+/* Cards */
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:26px 24px;transition:transform .28s var(--ease),box-shadow .28s var(--ease),border-color .28s;
+  position:relative;overflow:hidden;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--border-strong)}
+.card-ico{
+  width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  background:var(--accent-soft);color:var(--accent);margin-bottom:16px;
+}
+.card-ico svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.12rem;margin-bottom:.5em}
+.card p{color:var(--muted);font-size:.925rem;margin:0}
+
+/* ============================================================
+   6. PUBLICATIONS
+   ============================================================ */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.chip{
+  padding:7px 15px;border-radius:99px;border:1px solid var(--border);
+  background:var(--surface);color:var(--muted);font-size:.83rem;font-weight:500;
+  cursor:pointer;font-family:inherit;transition:all .2s var(--ease);
+}
+.chip:hover{color:var(--text);border-color:var(--border-strong)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+
+.pub{
+  display:grid;grid-template-columns:auto 1fr;gap:20px;
+  padding:24px 0;border-top:1px solid var(--border);
+  transition:opacity .3s,transform .3s;
+}
+.pub:last-child{border-bottom:1px solid var(--border)}
+.pub-n{
+  font-family:var(--font-display);font-size:1.5rem;font-weight:500;
+  color:var(--border-strong);line-height:1.2;min-width:1.7ch;
+  transition:color .25s;
+}
+.pub:hover .pub-n{color:var(--accent)}
+.pub h3{font-size:1.09rem;line-height:1.4;margin-bottom:.45em;font-weight:600}
+.pub h3 a{color:var(--text)}
+.pub h3 a:hover{color:var(--accent)}
+.authors{font-size:.895rem;color:var(--muted);margin-bottom:.55em}
+.authors .me{color:var(--text);font-weight:600}
+.pub-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.venue{
+  font-size:.8rem;font-weight:600;padding:3.5px 10px;border-radius:6px;
+  background:var(--accent-2-soft);color:var(--text);letter-spacing:-.005em;
+}
+.venue.pre{background:var(--accent-soft);color:var(--accent)}
+.pub-meta .mono{color:var(--muted)}
+.doi{
+  font-family:var(--font-mono);font-size:.76rem;color:var(--muted);
+  display:inline-flex;align-items:center;gap:5px;
+}
+.doi:hover{color:var(--accent)}
+.doi svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2}
+
+/* ============================================================
+   7. TIMELINE
+   ============================================================ */
+.tl{position:relative;padding-left:30px}
+.tl::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.tl-item{position:relative;padding-bottom:30px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{
+  content:'';position:absolute;left:-29px;top:7px;width:11px;height:11px;border-radius:99px;
+  background:var(--bg);border:2px solid var(--line);transition:border-color .25s,background-color .25s;
+}
+.tl-item:hover::before{border-color:var(--accent);background:var(--accent)}
+.band .tl-item::before{background:var(--bg-alt)}
+.band .tl-item:hover::before{background:var(--accent)}
+.tl-date{font-family:var(--font-mono);font-size:.755rem;color:var(--accent);letter-spacing:.03em;margin-bottom:5px;font-weight:500}
+.tl-item h3{font-size:1.04rem;margin-bottom:.22em}
+.tl-item p{color:var(--muted);font-size:.9rem;margin:0}
+.tl-item .note{display:inline-block;margin-top:6px;font-size:.82rem;color:var(--text-2);font-style:italic}
+
+/* Thesis block */
+.thesis{
+  margin-top:34px;padding:26px 28px;border-radius:var(--radius);
+  background:var(--surface);border:1px solid var(--border);
+  border-left:3px solid var(--accent);box-shadow:var(--shadow);
+}
+.thesis .kicker{margin-bottom:10px}
+.thesis h3{font-size:1.2rem;font-style:italic;font-weight:500;margin-bottom:.4em}
+.thesis p{margin:0;color:var(--muted);font-size:.92rem}
+
+/* ============================================================
+   8. CONFERENCES
+   ============================================================ */
+.conf{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:17px 0;border-bottom:1px solid var(--border);
+}
+.conf:first-child{border-top:1px solid var(--border)}
+.conf-yr{
+  font-family:var(--font-mono);font-size:.78rem;color:var(--muted);
+  min-width:44px;padding-top:3px;flex:none;
+}
+.conf-body{flex:1;min-width:0}
+.conf-body strong{font-weight:550;font-size:.97rem;display:block;margin-bottom:3px;letter-spacing:-.008em}
+.conf-body span{color:var(--muted);font-size:.86rem}
+.tag{
+  flex:none;align-self:center;font-size:.72rem;font-weight:600;letter-spacing:.03em;
+  padding:4px 10px;border-radius:99px;text-transform:uppercase;white-space:nowrap;
+}
+.tag.talk{background:var(--accent);color:#fff}
+.tag.poster{background:var(--accent-2-soft);color:var(--text)}
+.tag.attend{background:var(--surface-2);color:var(--muted);border:1px solid var(--border)}
+
+/* ============================================================
+   9. AWARDS / SKILLS
+   ============================================================ */
+.award{
+  display:flex;gap:14px;padding:18px 20px;border-radius:var(--radius-sm);
+  background:var(--surface);border:1px solid var(--border);
+  transition:transform .25s var(--ease),border-color .25s;
+}
+.award:hover{transform:translateY(-2px);border-color:var(--border-strong)}
+.award-ico{font-size:1.15rem;line-height:1.4;flex:none;color:var(--accent)}
+.award-ico svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.award strong{display:block;font-size:.95rem;font-weight:600;margin-bottom:2px}
+.award span{font-size:.86rem;color:var(--muted)}
+
+.skill-row{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--border)}
+.skill-row:first-of-type{border-top:1px solid var(--border)}
+.skill-row dt{font-size:.85rem;color:var(--accent);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+.skill-row dd{margin:0;display:flex;flex-wrap:wrap;gap:7px}
+.pill{
+  padding:5px 12px;border-radius:7px;background:var(--surface);
+  border:1px solid var(--border);font-size:.845rem;color:var(--text-2);
+  transition:border-color .2s,color .2s,transform .2s var(--ease);
+}
+.pill:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+
+/* ============================================================
+   10. CONTACT / FOOTER
+   ============================================================ */
+.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,56px);align-items:start}
+.contact-grid h2{font-size:clamp(1.9rem,4.2vw,2.7rem);margin-bottom:.35em}
+.contact-grid > div > p{color:var(--muted);max-width:44ch}
+
+.detail{display:flex;gap:13px;padding:14px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.detail:first-of-type{border-top:1px solid var(--border)}
+.detail-ico{color:var(--accent);flex:none;padding-top:2px}
+.detail-ico svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.detail-k{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin-bottom:2px}
+.detail-v{font-size:.94rem;word-break:break-word}
+.detail-v a{color:var(--text)}
+.detail-v a:hover{color:var(--accent)}
+
+.socials{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.social{
+  display:inline-flex;align-items:center;gap:8px;padding:9px 15px;
+  border-radius:99px;border:1px solid var(--border);background:var(--surface);
+  color:var(--text-2);font-size:.86rem;font-weight:500;
+  transition:all .22s var(--ease);
+}
+.social:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
+.social svg{width:15px;height:15px;flex:none}
+
+footer{padding:34px 0;border-top:1px solid var(--border);background:var(--bg)}
+.foot-in{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;font-size:.83rem;color:var(--muted)}
+.to-top{display:inline-flex;align-items:center;gap:6px;color:var(--muted)}
+.to-top:hover{color:var(--accent)}
+.to-top svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ============================================================
+   11. REVEAL ANIMATION
+   ============================================================ */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* ============================================================
+   12. RESPONSIVE
+   ============================================================ */
+@media (max-width:980px){
+  .g3{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media (max-width:820px){
+  html{scroll-padding-top:72px}
+  .nav-links{
+    position:fixed;top:64px;left:0;right:0;
+    flex-direction:column;gap:0;padding:10px clamp(16px,4vw,40px) 18px;
+    background:var(--bg);border-bottom:1px solid var(--border);
+    box-shadow:var(--shadow-lg);
+    display:none;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{padding:11px 4px;font-size:.95rem;border-radius:var(--radius-sm)}
+  #menuBtn{display:grid}
+  .hero{padding:118px 0 66px}
+  .hero-in{grid-template-columns:1fr;text-align:left}
+  .portrait-wrap{order:-1;margin-bottom:10px;justify-self:start;width:-moz-max-content;width:max-content}
+  .stats{grid-template-columns:repeat(2,1fr);margin-top:48px}
+  section{padding:66px 0}
+  .g2,.g3{grid-template-columns:1fr}
+  .skill-row{grid-template-columns:1fr;gap:9px}
+}
+@media (max-width:520px){
+  body{font-size:15.8px}
+  .pub{grid-template-columns:1fr;gap:8px}
+  .pub-n{font-size:1.1rem}
+  .conf{flex-wrap:wrap}
+  .tag{align-self:flex-start;margin-left:60px}
+  .btn{width:100%;justify-content:center}
+  .cta-row{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+@media print{
+  .nav,#lattice,.socials,.cta-row,footer{display:none}
+  body{background:#fff;color:#000;font-size:11pt}
+  section{padding:16px 0;break-inside:avoid}
+  .card,.award{box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ========================= NAV ========================= -->
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">Animesh <span>Hazra</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#talks">Talks</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle colour theme" title="Toggle light / dark">
+      <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+    <button class="icon-btn" id="menuBtn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ========================= HERO ========================= -->
+<header class="hero" id="top">
+  <canvas id="lattice" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-in">
+      <div>
+        <span class="eyebrow"><span class="pulse"></span> YST Fellow &middot; APCTP, Pohang, Republic of Korea</span>
+        <h1 class="name">Animesh <em>Hazra</em></h1>
+        <p class="role">Theoretical physicist working on <strong>nonequilibrium statistical mechanics</strong> &mdash; the large-scale hydrodynamics of driven many-particle systems.</p>
+        <p class="tagline">I study how conservation laws, chirality and broken time-reversal symmetry shape fluctuations, correlations and transport in stochastic mass transport processes &mdash; from exact hyperuniformity to generic power laws on lattices.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="cv.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7.5 10.5 12 15l4.5-4.5M4 20h16"/></svg>
+            Download CV
+          </a>
+          <a class="btn btn-ghost" href="#publications">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"/></svg>
+            Publications
+          </a>
+          <a class="btn btn-ghost" href="mailto:animesh.hazra@apctp.org">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+            Email
+          </a>
         </div>
       </div>
-    </header>
 
-    <main>
-      <section id="research" class="section container">
-        <h2>Research Activity</h2>
-        <div class="grid cards-3">
-          <article class="card">
-            <h3>Post-PhD Focus</h3>
-            <p>
-              Investigating impactful, interdisciplinary questions with strong
-              real-world relevance and long-term social value.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Current Themes</h3>
-            <p>
-              Data-driven discovery, research communication, and collaborative
-              problem-solving across domains.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Academic Mission</h3>
-            <p>
-              Building rigorous knowledge while mentoring students and sharing
-              accessible, reproducible research practices.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section id="travel" class="section section-alt">
-        <div class="container">
-          <h2>Travel Experience & Memories</h2>
-          <p class="section-intro">
-            Every journey has given me a deeper understanding of people,
-            perspectives, and place. Here are highlights from my personal
-            travel memory wall.
-          </p>
-          <div class="timeline">
-            <div class="timeline-item">
-              <h3>Mountain Retreat</h3>
-              <p>
-                A reflective journey in the hills where long walks inspired new
-                research ideas and personal clarity.
-              </p>
-            </div>
-            <div class="timeline-item">
-              <h3>Historic City Exploration</h3>
-              <p>
-                Museum visits, local archives, and cultural conversations that
-                shaped my view on knowledge and heritage.
-              </p>
-            </div>
-            <div class="timeline-item">
-              <h3>Coastal Escape</h3>
-              <p>
-                Quiet mornings by the sea and handwritten notes about growth,
-                gratitude, and future goals.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="portal" class="section container">
-        <h2>Personal Portal</h2>
-        <p class="section-intro">
-          Login to access private resources: LaTeX portal, personal diary notes,
-          daily experiences, and more.
-        </p>
-
-        <div class="portal-layout">
-          <form id="loginForm" class="card login-card" autocomplete="off">
-            <h3>Portal Login</h3>
-            <label for="username">User Name</label>
-            <input id="username" name="username" type="text" placeholder="Enter user name" required />
-
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password" placeholder="Enter password" required />
-
-            <button type="submit" class="btn">Sign In</button>
-            <p id="loginMsg" class="login-msg"></p>
-            <p class="hint">Demo credentials: <strong>animesh</strong> / <strong>research@123</strong></p>
-          </form>
-
-          <div id="portalContent" class="card portal-content hidden">
-            <h3>Welcome to your Private Portal</h3>
-            <div class="grid cards-2">
-              <div class="mini-card">
-                <h4>LaTeX Portal</h4>
-                <p>Store paper drafts, templates, and bibliography workflows.</p>
-              </div>
-              <div class="mini-card">
-                <h4>Personal Diary Notes</h4>
-                <p>Capture reflections, emotions, and key personal milestones.</p>
-              </div>
-              <div class="mini-card">
-                <h4>Daily Experience Log</h4>
-                <p>Track daily moments, observations, and lessons learned.</p>
-              </div>
-              <div class="mini-card">
-                <h4>Secure Archive</h4>
-                <p>Maintain private documents and memory snapshots in one place.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <p>© 2026 Animesh Hazra • Researcher • Traveler • Lifelong Learner</p>
-    </footer>
-
-    <script>
-      const loginForm = document.getElementById('loginForm');
-      const loginMsg = document.getElementById('loginMsg');
-      const portalContent = document.getElementById('portalContent');
-
-      loginForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value;
-
-        if (username === 'animesh' && password === 'research@123') {
-          loginMsg.textContent = 'Login successful.';
-          loginMsg.className = 'login-msg success';
-          portalContent.classList.remove('hidden');
-        } else {
-          loginMsg.textContent = 'Invalid username or password.';
-          loginMsg.className = 'login-msg error';
-        portalContent.classList.add('hidden');
-       }
-      });
-    </script>
-  </body>
-</html>
-       <div class="hero-actions">
-          <a class="btn" href="#research">View Research</a>
-          <a class="btn btn-ghost" href="#travel">Travel Memories</a>
+      <div class="portrait-wrap">
+        <div class="ring" aria-hidden="true"></div>
+        <!-- Drop a square photo named profile.jpg next to index.html and it appears here. -->
+        <img class="portrait" id="portrait" src="profile.jpg" alt="Portrait of Animesh Hazra" onerror="this.style.display='none';document.getElementById('portraitFallback').style.display='grid';">
+        <div class="portrait-fallback" id="portraitFallback" style="display:none" aria-hidden="true">
+          <div><b>AH</b>Add <code>profile.jpg</code><br>to show your photo</div>
         </div>
       </div>
-    </header>
+    </div>
 
-    <main>
-      <section id="research" class="section container">
-        <h2>Research Activity</h2>
-        <div class="grid cards-3">
-          <article class="card">
-            <h3>Post-PhD Focus</h3>
-            <p>
-              Investigating impactful, interdisciplinary questions with strong
-              real-world relevance and long-term social value.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Current Themes</h3>
-            <p>
-              Data-driven discovery, research communication, and collaborative
-              problem-solving across domains.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Academic Mission</h3>
-            <p>
-              Building rigorous knowledge while mentoring students and sharing
-              accessible, reproducible research practices.
-            </p>
-          </article>
-        </div>
-      </section>
+    <div class="stats rv">
+      <div class="stat"><b>6</b><span>Publications</span></div>
+      <div class="stat"><b>11</b><span>Conferences</span></div>
+      <div class="stat"><b>2</b><span>Invited talks</span></div>
+      <div class="stat"><b>2</b><span>Countries</span></div>
+    </div>
+  </div>
+</header>
 
-      <section id="travel" class="section section-alt">
-        <div class="container">
-         <h2>Travel Experience & Memories</h2>
-          <p class="section-intro">
-            Every journey has given me a deeper understanding of people,
-            perspectives, and place. Here are highlights from my personal
-            travel memory wall.
-          </p>
-          <div class="timeline">
-            <div class="timeline-item">
-              <h3>Mountain Retreat</h3>
-              <p>
-                A reflective journey in the hills where long walks inspired new
-                research ideas and personal clarity.
-              </p>
-            </div>
-            <div class="timeline-item">
-              <h3>Historic City Exploration</h3>
-              <p>
-                Museum visits, local archives, and cultural conversations that
-                shaped my view on knowledge and heritage.
-              </p>
-            </div>
-            <div class="timeline-item">
-              <h3>Coastal Escape</h3>
-              <p>
-                Quiet mornings by the sea and handwritten notes about growth,
-                gratitude, and future goals.
-              </p>
-            </div>
+<!-- ========================= RESEARCH ========================= -->
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker">Research</div>
+      <h2>Hydrodynamics far from equilibrium</h2>
+      <p>My work centres on the large-scale spatio-temporal characterisation of many-particle systems driven out of equilibrium &mdash; deriving transport coefficients, quantifying fluctuations, and uncovering the generic long-range order that conservation laws impose.</p>
+    </div>
+
+    <div class="grid g3">
+      <article class="card rv">
+        <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Mass transport processes</h3>
+        <p>Stochastic models of chipping, aggregation and fragmentation on lattices &mdash; their steady states, hydrodynamic limits, and the bulk-diffusion coefficient and mobility that govern them.</p>
+      </article>
+
+      <article class="card rv">
+        <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h3>Hyperuniformity</h3>
+        <p>Exact results for anomalously suppressed density fluctuations in systems with centre-of-mass conservation, and the generic power laws that follow in higher dimensions.</p>
+      </article>
+
+      <article class="card rv">
+        <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3.4-7"/><path d="M21 4v5h-5"/></svg></div>
+        <h3>Chirality &amp; odd diffusion</h3>
+        <p>What happens when time-reversal symmetry breaks: odd transport coefficients, anomalous relaxation, and long-ranged power-law correlations in chiral mass-transport processes.</p>
+      </article>
+
+      <article class="card rv">
+        <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c3-9 6-9 9 0s6 9 9 0"/></svg></div>
+        <h3>Current &amp; mass fluctuations</h3>
+        <p>Dynamic fluctuations of time-integrated current and subsystem mass, their scaling functions, and what they reveal about the underlying hydrodynamics.</p>
+      </article>
+
+      <article class="card rv">
+        <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="m7 15 4-5 3 3 5-7"/></svg></div>
+        <h3>Macroscopic Fluctuation Theory</h3>
+        <p>Applying MFT and fluctuating hydrodynamics to compute large deviations of current and density in interacting particle systems, beyond the gradient-type models.</p>
+      </article>
+
+      <article class="card rv">
+        <div class="card-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div>
+        <h3>Large-scale simulation</h3>
+        <p>Monte Carlo and kinetic Monte Carlo studies in C/C++ (with OpenMP) and Python, built to reach the system sizes and time windows that hydrodynamic scaling demands.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= PUBLICATIONS ========================= -->
+<section id="publications" class="band">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker">Publications</div>
+      <h2>Selected work</h2>
+      <p>Six papers in <em>Physical Review E</em>, <em>Journal of Statistical Mechanics</em> and on the arXiv. Full record on <a href="https://scholar.google.com/citations?user=U1kP2L0AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+    </div>
+
+    <div class="filters rv" role="group" aria-label="Filter publications">
+      <button class="chip" type="button" data-filter="all" aria-pressed="true">All &middot; 6</button>
+      <button class="chip" type="button" data-filter="journal" aria-pressed="false">Journal &middot; 4</button>
+      <button class="chip" type="button" data-filter="preprint" aria-pressed="false">Preprint &middot; 2</button>
+      <button class="chip" type="button" data-filter="first" aria-pressed="false">First author &middot; 3</button>
+    </div>
+
+    <div id="pubList">
+
+      <article class="pub rv" data-type="preprint">
+        <div class="pub-n">06</div>
+        <div>
+          <h3><a href="https://doi.org/10.48550/arXiv.2609.16821" target="_blank" rel="noopener">Odd diffusion and power-law correlations in chiral mass-transport processes</a></h3>
+          <p class="authors">Koushik Das, <span class="me">Animesh Hazra</span>, Punyabrata Pradhan</p>
+          <div class="pub-meta">
+            <span class="venue pre">arXiv preprint</span>
+            <span class="mono">Sep 2026 &middot; arXiv:2609.16821</span>
+            <a class="doi" href="https://doi.org/10.48550/arXiv.2609.16821" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+              10.48550/arXiv.2609.16821
+            </a>
           </div>
         </div>
-      </section>
+      </article>
 
-      <section id="portal" class="section container">
-        <h2>Personal Portal</h2>
-        <p class="section-intro">
-          Login to access private resources: LaTeX portal, personal diary notes,
-          daily experiences, and more.
-        </p>
-
-        <div class="portal-layout">
-          <form id="loginForm" class="card login-card" autocomplete="off">
-            <h3>Portal Login</h3>
-            <label for="username">User Name</label>
-            <input id="username" name="username" type="text" placeholder="Enter user name" required />
-
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password" placeholder="Enter password" required />
-
-            <button type="submit" class="btn">Sign In</button>
-            <p id="loginMsg" class="login-msg"></p>
-            <p class="hint">Demo credentials: <strong>animesh</strong> / <strong>research@123</strong></p>
-          </form>
-
-          <div id="portalContent" class="card portal-content hidden">
-            <h3>Welcome to your Private Portal</h3>
-            <div class="grid cards-2">
-              <div class="mini-card">
-                <h4>LaTeX Portal</h4>
-                <p>Store paper drafts, templates, and bibliography workflows.</p>
-              </div>
-              <div class="mini-card">
-                <h4>Personal Diary Notes</h4>
-                <p>Capture reflections, emotions, and key personal milestones.</p>
-              </div>
-              <div class="mini-card">
-                <h4>Daily Experience Log</h4>
-                <p>Track daily moments, observations, and lessons learned.</p>
-              </div>
-              <div class="mini-card">
-                <h4>Secure Archive</h4>
-                <p>Maintain private documents and memory snapshots in one place.</p>
-              </div>
-            </div>
+      <article class="pub rv" data-type="preprint">
+        <div class="pub-n">05</div>
+        <div>
+          <h3><a href="https://doi.org/10.48550/arXiv.2604.02167" target="_blank" rel="noopener">Power laws, anisotropy and center-of-mass conservation in mass transport processes</a></h3>
+          <p class="authors">Aniket Samanta, <span class="me">Animesh Hazra</span>, Punyabrata Pradhan</p>
+          <div class="pub-meta">
+            <span class="venue pre">arXiv preprint</span>
+            <span class="mono">Apr 2026 &middot; arXiv:2604.02167</span>
+            <a class="doi" href="https://doi.org/10.48550/arXiv.2604.02167" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+              10.48550/arXiv.2604.02167
+            </a>
           </div>
         </div>
-      </section>
-    </main>
+      </article>
 
-    <footer class="footer">
-      <p>© 2026 Animesh Hazra • Researcher • Traveler • Lifelong Learner</p>
-    </footer>
+      <article class="pub rv" data-type="journal first">
+        <div class="pub-n">04</div>
+        <div>
+          <h3><a href="https://doi.org/10.1103/sn1k-k8ng" target="_blank" rel="noopener">Generic power laws in higher-dimensional lattice models with multidirectional hopping</a></h3>
+          <p class="authors"><span class="me">Animesh Hazra</span>, Tanmoy Chakraborty, Anirban Mukherjee, Punyabrata Pradhan</p>
+          <div class="pub-meta">
+            <span class="venue">Phys. Rev. E</span>
+            <span class="mono">112(4), 044130 &middot; Oct 2025</span>
+            <a class="doi" href="https://doi.org/10.1103/sn1k-k8ng" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+              10.1103/sn1k-k8ng
+            </a>
+          </div>
+        </div>
+      </article>
 
-    <script>
-      const loginForm = document.getElementById('loginForm');
-      const loginMsg = document.getElementById('loginMsg');
-      const portalContent = document.getElementById('portalContent');
+      <article class="pub rv" data-type="journal first">
+        <div class="pub-n">03</div>
+        <div>
+          <h3><a href="https://doi.org/10.1088/1742-5468/ada88c" target="_blank" rel="noopener">Hyperuniformity in mass transport processes with center-of-mass conservation: some exact results</a></h3>
+          <p class="authors"><span class="me">Animesh Hazra</span>, Anirban Mukherjee, Punyabrata Pradhan</p>
+          <div class="pub-meta">
+            <span class="venue">J. Stat. Mech.</span>
+            <span class="mono">2025(2), 023201 &middot; Feb 2025</span>
+            <a class="doi" href="https://doi.org/10.1088/1742-5468/ada88c" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+              10.1088/1742-5468/ada88c
+            </a>
+          </div>
+        </div>
+      </article>
 
-      loginForm.addEventListener('submit', function (event) {
-        event.preventDefault();
+      <article class="pub rv" data-type="journal first">
+        <div class="pub-n">02</div>
+        <div>
+          <h3><a href="https://doi.org/10.1088/1742-5468/ad5c56" target="_blank" rel="noopener">Dynamic fluctuations of current and mass in nonequilibrium mass transport processes</a></h3>
+          <p class="authors"><span class="me">Animesh Hazra</span>, Anirban Mukherjee, Punyabrata Pradhan</p>
+          <div class="pub-meta">
+            <span class="venue">J. Stat. Mech.</span>
+            <span class="mono">2024(8), 083205 &middot; Aug 2024</span>
+            <a class="doi" href="https://doi.org/10.1088/1742-5468/ad5c56" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+              10.1088/1742-5468/ad5c56
+            </a>
+          </div>
+        </div>
+      </article>
 
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value;
+      <article class="pub rv" data-type="journal">
+        <div class="pub-n">01</div>
+        <div>
+          <h3><a href="https://doi.org/10.1103/PhysRevE.110.024119" target="_blank" rel="noopener">Anomalous relaxation and hyperuniform fluctuations in center-of-mass conserving systems with broken time-reversal symmetry</a></h3>
+          <p class="authors">Anirban Mukherjee, Dhiraj Tapader, <span class="me">Animesh Hazra</span>, Punyabrata Pradhan</p>
+          <div class="pub-meta">
+            <span class="venue">Phys. Rev. E</span>
+            <span class="mono">110(2), 024119 &middot; Aug 2024</span>
+            <a class="doi" href="https://doi.org/10.1103/PhysRevE.110.024119" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+              10.1103/PhysRevE.110.024119
+            </a>
+          </div>
+        </div>
+      </article>
 
-        if (username === 'animesh' && password === 'research@123') {
-          loginMsg.textContent = 'Login successful.';
-          loginMsg.className = 'login-msg success';
-          portalContent.classList.remove('hidden');
-        } else {
-          loginMsg.textContent = 'Invalid username or password.';
-          loginMsg.className = 'login-msg error';
-        portalContent.classList.add('hidden');
-       }
+    </div>
+  </div>
+</section>
+
+<!-- ========================= TALKS / CONFERENCES ========================= -->
+<section id="talks">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker">Talks &amp; Conferences</div>
+      <h2>Where I've presented</h2>
+      <p>Eleven meetings across India and Europe, including two contributed talks and five posters.</p>
+    </div>
+
+    <div class="rv">
+      <div class="conf">
+        <div class="conf-yr">2025</div>
+        <div class="conf-body">
+          <strong><a href="https://newweb.bose.res.in/Conferences/SMMK-2025/" target="_blank" rel="noopener">Stat. Mech. Meet Kolkata (SMMK-2025)</a></strong>
+          <span>S. N. Bose National Centre for Basic Sciences, Kolkata</span>
+        </div>
+        <span class="tag talk">Talk</span>
+      </div>
+
+      <div class="conf">
+        <div class="conf-yr">2025</div>
+        <div class="conf-body">
+          <strong><a href="https://statphys29.org/" target="_blank" rel="noopener">STATPHYS29 &mdash; 29th International Conference on Statistical Physics</a></strong>
+          <span>Florence, Italy &middot; supported by an ANRF International Travel Grant</span>
+        </div>
+        <span class="tag poster">Poster</span>
+      </div>
+
+      <div class="conf">
+        <div class="conf-yr">2025</div>
+        <div class="conf-body">
+          <strong>Physics of Non-equilibrium Systems</strong>
+          <span>S. N. Bose National Centre for Basic Sciences, Kolkata</span>
+        </div>
+        <span class="tag poster">Poster</span>
+      </div>
+
+      <div class="conf">
+        <div class="conf-yr">2024</div>
+        <div class="conf-body">
+          <strong><a href="https://newweb.bose.res.in/Conferences/SMMK-2024/" target="_blank" rel="noopener">Stat. Mech. Meet Kolkata (SMMK-2024)</a></strong>
+          <span>S. N. Bose National Centre for Basic Sciences, Kolkata</span>
+        </div>
+        <span class="tag talk">Talk</span>
+      </div>
+
+      <div class="conf">
+        <div class="conf-yr">2024</div>
+        <div class="conf-body">
+          <strong><a href="https://www.icts.res.in/discussion-meeting/ispcm2024" target="_blank" rel="noopener">9th Indian Statistical Physics Community Meeting</a></strong>
+          <span>ICTS-TIFR, Bangalore</span>
+        </div>
+        <span class="tag poster">Poster</span>
+      </div>
+
+      <div class="conf">
+        <div class="conf-yr">2023</div>
+        <div class="conf-body">
+          <strong><a href="https://sites.google.com/iiserkol.ac.in/statphyskxii/home" target="_blank" rel="noopener">StatPhys Kolkata XII</a></strong>
+          <span>SNBNCBS &amp; IISER Kolkata, India</span>
+        </div>
+        <span class="tag poster">Poster</span>
+      </div>
+
+      <div class="conf">
+        <div class="conf-yr">2023</div>
+        <div class="conf-body">
+          <strong>Statistical Physics After 100 Years of the Ising Model</strong>
+          <span>University of Calcutta, Kolkata, India</span>
+        </div>
+        <span class="tag poster">Poster</span>
+      </div>
+
+      <div class="conf">
+        <div class="conf-yr">2023</div>
+        <div class="conf-body">
+          <strong><a href="https://www.bose.res.in/Conferences/SSPSM2023/program/" target="_blank" rel="noopener">Steady-state phenomena in soft matter, active and biological systems</a></strong>
+          <span>S. N. Bose National Centre for Basic Sciences, Kolkata</span>
+        </div>
+        <span class="tag attend">Attended</span>
+      </div>
+
+      <div class="conf">
+        <div class="conf-yr">2022</div>
+        <div class="conf-body">
+          <strong><a href="https://www.icts.res.in/discussion-meeting/SPCS2022" target="_blank" rel="noopener">Statistical physics of complex systems</a></strong>
+          <span>ICTS-TIFR, Bangalore</span>
+        </div>
+        <span class="tag attend">Attended</span>
+      </div>
+
+      <div class="conf">
+        <div class="conf-yr">2022</div>
+        <div class="conf-body">
+          <strong><a href="https://www.icts.res.in/discussion-meeting/sprf" target="_blank" rel="noopener">Statistical Physics: Recent Advances and Future Directions</a></strong>
+          <span>ICTS-TIFR, Bangalore &middot; online</span>
+        </div>
+        <span class="tag attend">Attended</span>
+      </div>
+
+      <div class="conf">
+        <div class="conf-yr">2021</div>
+        <div class="conf-body">
+          <strong>Bangalore School of Statistical Physics &mdash; XII</strong>
+          <span>ICTS-TIFR, Bangalore &middot; online</span>
+        </div>
+        <span class="tag attend">School</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= CV: EDUCATION + AWARDS + SKILLS ========================= -->
+<section id="cv" class="band">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="kicker">Curriculum Vitae</div>
+      <h2>Positions &amp; training</h2>
+      <p>From Rahara to Kolkata to Pohang &mdash; a decade in physics.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="rv">
+        <div class="tl">
+          <div class="tl-item">
+            <div class="tl-date">2026 &mdash; Present</div>
+            <h3>YST Fellow</h3>
+            <p>Asia Pacific Center for Theoretical Physics (APCTP), Pohang, Republic of Korea</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">2025 &mdash; 2026</div>
+            <h3>Bridge Fellow</h3>
+            <p>Department of Physics of Complex Systems, S. N. Bose National Centre for Basic Sciences, Kolkata</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">2022 &mdash; 2025</div>
+            <h3>Senior Research Fellow</h3>
+            <p>Department of Physics of Complex Systems, S. N. Bose National Centre for Basic Sciences, Kolkata</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">2020 &mdash; 2022</div>
+            <h3>Junior Research Fellow</h3>
+            <p>Department of Physics of Complex Systems, S. N. Bose National Centre for Basic Sciences, Kolkata</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">2018 &mdash; 2020</div>
+            <h3>M.Sc. in Physics</h3>
+            <p>S. N. Bose National Centre for Basic Sciences, Kolkata</p>
+            <span class="note">First Class First &middot; DGPA 8.48</span>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">2015 &mdash; 2018</div>
+            <h3>B.Sc. in Physics</h3>
+            <p>Ramakrishna Mission Vivekananda Centenary College, Rahara</p>
+            <span class="note">First Class &middot; 75.88%</span>
+          </div>
+        </div>
+
+        <div class="thesis">
+          <div class="kicker">Ph.D. Thesis</div>
+          <h3>Studies of dynamic properties of mass transport processes</h3>
+          <p>Supervisor: Prof. Punyabrata Pradhan &middot; S. N. Bose National Centre for Basic Sciences</p>
+        </div>
+      </div>
+
+      <div class="rv">
+        <h3 style="font-size:1.25rem;margin-bottom:18px">Awards &amp; achievements</h3>
+        <div class="grid" style="gap:11px">
+          <div class="award">
+            <span class="award-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8 13.5 6.5 21 12 18.5 17.5 21 16 13.5"/></svg></span>
+            <div><strong>Topper Medal, M.Sc.</strong><span>S. N. Bose National Centre for Basic Sciences, batch 2018&ndash;2020</span></div>
+          </div>
+          <div class="award">
+            <span class="award-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5zM3 14l9 5 9-5"/></svg></span>
+            <div><strong>CSIR-NET &mdash; All India JRF Rank 89</strong><span>Physical Sciences, November 2020</span></div>
+          </div>
+          <div class="award">
+            <span class="award-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5zM3 14l9 5 9-5"/></svg></span>
+            <div><strong>JEST &mdash; All India Rank 126</strong><span>Physics, 2018</span></div>
+          </div>
+          <div class="award">
+            <span class="award-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/><circle cx="12" cy="12" r="10"/></svg></span>
+            <div><strong>ANRF International Travel Support</strong><span>Awarded 2025 to attend STATPHYS29, Florence, Italy</span></div>
+          </div>
+          <div class="award">
+            <span class="award-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v13"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+            <div><strong>Junior &amp; Senior Research Fellowship</strong><span>S. N. Bose National Centre for Basic Sciences</span></div>
+          </div>
+          <div class="award">
+            <span class="award-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 14.9 9l6.1.9-4.4 4.3 1 6.1-5.6-3-5.6 3 1-6.1L3 9.9 9.1 9z"/></svg></span>
+            <div><strong>Swami Vivekananda Merit-cum-Means Scholarship</strong><span>2015 &ndash; 2018</span></div>
+          </div>
+        </div>
+
+        <h3 style="font-size:1.25rem;margin:34px 0 6px">Service &amp; outreach</h3>
+        <div class="grid" style="gap:11px">
+          <div class="award">
+            <span class="award-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="3.5"/><path d="M22 20v-2a4 4 0 0 0-3-3.9M16 3.6a4 4 0 0 1 0 7"/></svg></span>
+            <div><strong>Local organiser</strong><span>SSPSM 2023 &middot; TPSAM 2024 &middot; BoseStat@100 &middot; CQNS 2025</span></div>
+          </div>
+          <div class="award">
+            <span class="award-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a15 15 0 0 0 0 18M3.5 9h17M3.5 15h17"/></svg></span>
+            <div><strong>Sports Coordinator</strong><span>S. N. Bose National Centre for Basic Sciences, 2022&ndash;23</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:1.25rem;margin:52px 0 4px" class="rv">Skills</h3>
+    <dl class="rv" style="margin:0">
+      <div class="skill-row">
+        <dt>Computing</dt>
+        <dd>
+          <span class="pill">Python</span><span class="pill">C / C++</span><span class="pill">FORTRAN</span>
+          <span class="pill">Mathematica</span><span class="pill">MATLAB</span><span class="pill">HTML</span>
+          <span class="pill">OpenMP</span><span class="pill">LaTeX</span>
+        </dd>
+      </div>
+      <div class="skill-row">
+        <dt>Methods</dt>
+        <dd>
+          <span class="pill">Monte Carlo simulation</span><span class="pill">Fluctuating hydrodynamics</span>
+          <span class="pill">Macroscopic Fluctuation Theory</span><span class="pill">Exact lattice-model calculations</span>
+          <span class="pill">Scientific writing &amp; publishing</span>
+        </dd>
+      </div>
+      <div class="skill-row">
+        <dt>Languages</dt>
+        <dd>
+          <span class="pill">Bengali &mdash; native</span><span class="pill">English &mdash; fluent</span><span class="pill">Hindi &mdash; fluent</span>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- ========================= CONTACT ========================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="rv">
+        <div class="kicker">Contact</div>
+        <h2>Let's talk physics</h2>
+        <p>I'm always glad to hear about collaborations, seminars, or questions on transport and fluctuations in driven systems. Email is the surest way to reach me.</p>
+        <div class="socials">
+          <a class="social" href="https://scholar.google.com/citations?user=U1kP2L0AAAAJ&amp;hl=en" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 1 9l11 7 9-5.7V17h2V9L12 2zM5 14v4c0 2.2 3.1 4 7 4s7-1.8 7-4v-4l-7 4.4L5 14z"/></svg>
+            Google Scholar
+          </a>
+          <a class="social" href="https://www.researchgate.net/profile/Animesh-Hazra-2" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.6 3H4.4A1.4 1.4 0 0 0 3 4.4v15.2A1.4 1.4 0 0 0 4.4 21h15.2a1.4 1.4 0 0 0 1.4-1.4V4.4A1.4 1.4 0 0 0 19.6 3zM9.3 16.9H7.5V7.1h3.4c2 0 3.3 1.1 3.3 2.9 0 1.4-.8 2.4-2.1 2.7l2.6 4.2h-2.1l-2.3-3.9H9.3v3.9zm0-5.4h1.4c1.1 0 1.7-.5 1.7-1.4S11.8 8.6 10.7 8.6H9.3v2.9z"/></svg>
+            ResearchGate
+          </a>
+          <a class="social" href="https://www.linkedin.com/in/ah1997ha/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 3H3.6A.6.6 0 0 0 3 3.6v16.8a.6.6 0 0 0 .6.6h16.8a.6.6 0 0 0 .6-.6V3.6a.6.6 0 0 0-.6-.6zM8.3 18.3H5.5V9.7h2.8v8.6zM6.9 8.5a1.6 1.6 0 1 1 0-3.3 1.6 1.6 0 0 1 0 3.3zm11.4 9.8h-2.8v-4.2c0-1-.02-2.3-1.4-2.3-1.4 0-1.6 1.1-1.6 2.2v4.3H9.7V9.7h2.7v1.2h.04a3 3 0 0 1 2.6-1.4c2.8 0 3.3 1.8 3.3 4.2v4.6z"/></svg>
+            LinkedIn
+          </a>
+          <a class="social" href="https://x.com/animeshhz/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.1l-6.8 7.7L21.8 21h-6.3l-4.9-6.4L4.9 21H1.8l7.2-8.2L1.5 3h6.4l4.4 5.9L17.5 3zm-1.1 16.1h1.7L7.7 4.8H5.9l10.5 14.3z"/></svg>
+            @animeshhz
+          </a>
+        </div>
+      </div>
+
+      <div class="rv">
+        <div class="detail">
+          <span class="detail-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></span>
+          <div>
+            <div class="detail-k">Institutional email</div>
+            <div class="detail-v"><a href="mailto:animesh.hazra@apctp.org">animesh.hazra@apctp.org</a></div>
+          </div>
+        </div>
+        <div class="detail">
+          <span class="detail-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></span>
+          <div>
+            <div class="detail-k">Personal email</div>
+            <div class="detail-v"><a href="mailto:ahazra.edu@gmail.com">ahazra.edu@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="detail">
+          <span class="detail-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
+          <div>
+            <div class="detail-k">Current affiliation</div>
+            <div class="detail-v">Asia Pacific Center for Theoretical Physics<br>POSTECH campus, Pohang, Republic of Korea</div>
+          </div>
+        </div>
+        <div class="detail">
+          <span class="detail-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+          <div>
+            <div class="detail-k">Permanent address</div>
+            <div class="detail-v">Barbasudebpur, East Medinipur<br>West Bengal, India</div>
+          </div>
+        </div>
+        <div class="detail">
+          <span class="detail-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7.5 10.5 12 15l4.5-4.5M4 20h16"/></svg></span>
+          <div>
+            <div class="detail-k">Curriculum vitae</div>
+            <div class="detail-v"><a href="cv.pdf" target="_blank" rel="noopener">Download as PDF</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>&copy; <span id="yr">2026</span> Animesh Hazra &middot; Built with plain HTML &amp; CSS</span>
+    <a class="to-top" href="#top">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+      Back to top
+    </a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Theme ---------- */
+  var root = document.documentElement;
+  var KEY = 'ah-theme';
+  try{
+    var saved = localStorage.getItem(KEY);
+    if(saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  }catch(e){}
+
+  function currentIsDark(){
+    var t = root.getAttribute('data-theme');
+    if(t === 'dark') return true;
+    if(t === 'light') return false;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  document.getElementById('themeBtn').addEventListener('click', function(){
+    var next = currentIsDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem(KEY, next); }catch(e){}
+    drawLattice();
+  });
+
+  /* ---------- Mobile menu ---------- */
+  var menuBtn = document.getElementById('menuBtn');
+  var navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', function(){
+    var open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* ---------- Nav state on scroll + scroll-spy ---------- */
+  var nav = document.getElementById('nav');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('section[id], header[id]'));
+  var links = Array.prototype.slice.call(navLinks.querySelectorAll('a'));
+  var ticking = false;
+
+  function onScroll(){
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+    var active = null;
+    for(var i = 0; i < sections.length; i++){
+      if(sections[i].getBoundingClientRect().top <= 140) active = sections[i].id;
+    }
+    if(window.innerHeight + window.scrollY >= document.body.scrollHeight - 4){
+      active = sections[sections.length - 1].id;
+    }
+    links.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + active);
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; window.requestAnimationFrame(onScroll); }
+  }, {passive:true});
+  onScroll();
+
+  /* ---------- Reveal on scroll ---------- */
+  var items = document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
       });
-    </script>
-  </body>
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.06});
+    items.forEach(function(el, i){
+      el.style.transitionDelay = (Math.min(i % 6, 5) * 55) + 'ms';
+      io.observe(el);
+    });
+  }else{
+    items.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- Publication filters ---------- */
+  var chips = document.querySelectorAll('.chip');
+  var pubs  = document.querySelectorAll('#pubList .pub');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+      chip.setAttribute('aria-pressed','true');
+      var f = chip.dataset.filter;
+      pubs.forEach(function(p){
+        var show = (f === 'all') || (p.dataset.type || '').indexOf(f) > -1;
+        p.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  /* ---------- Hero lattice animation ---------- */
+  var cv = document.getElementById('lattice');
+  var ctx = cv.getContext('2d');
+  var nodes = [], W = 0, H = 0, raf = null;
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function build(){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var host = cv.parentElement;
+    W = host.offsetWidth; H = host.offsetHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    var spacing = W < 700 ? 74 : 92;
+    nodes = [];
+    for(var x = spacing * 0.4; x < W + spacing; x += spacing){
+      for(var y = spacing * 0.4; y < H + spacing; y += spacing){
+        nodes.push({
+          hx: x, hy: y,
+          x: x, y: y,
+          ph: Math.random() * Math.PI * 2,
+          sp: 0.25 + Math.random() * 0.5,
+          am: 5 + Math.random() * 11,
+          r: 1.1 + Math.random() * 1.7
+        });
+      }
+    }
+  }
+
+  function styles(){
+    var cs = getComputedStyle(root);
+    return {
+      dot: cs.getPropertyValue('--dot').trim() || 'rgba(150,22,43,.5)',
+      line: cs.getPropertyValue('--line').trim() || 'rgba(0,0,0,.12)'
+    };
+  }
+
+  function drawLattice(t){
+    if(!W) build();
+    var s = styles();
+    ctx.clearRect(0, 0, W, H);
+    var time = (typeof t === 'number' ? t : 0) / 1000;
+
+    for(var i = 0; i < nodes.length; i++){
+      var n = nodes[i];
+      if(!reduced){
+        n.x = n.hx + Math.cos(time * n.sp + n.ph) * n.am;
+        n.y = n.hy + Math.sin(time * n.sp * 1.3 + n.ph) * n.am * 0.7;
+      }
+    }
+
+    ctx.strokeStyle = s.line; ctx.lineWidth = 1;
+    for(var a = 0; a < nodes.length; a++){
+      for(var b = a + 1; b < nodes.length; b++){
+        var dx = nodes[a].x - nodes[b].x, dy = nodes[a].y - nodes[b].y;
+        var d2 = dx * dx + dy * dy;
+        if(d2 < 12100){
+          ctx.globalAlpha = 1 - d2 / 12100;
+          ctx.beginPath();
+          ctx.moveTo(nodes[a].x, nodes[a].y);
+          ctx.lineTo(nodes[b].x, nodes[b].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    ctx.globalAlpha = 1; ctx.fillStyle = s.dot;
+    for(var k = 0; k < nodes.length; k++){
+      ctx.beginPath();
+      ctx.arc(nodes[k].x, nodes[k].y, nodes[k].r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function loop(t){ drawLattice(t); raf = requestAnimationFrame(loop); }
+
+  build();
+  if(reduced){ drawLattice(0); }
+  else { raf = requestAnimationFrame(loop); }
+
+  var rt;
+  window.addEventListener('resize', function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){ build(); drawLattice(0); }, 180);
+  });
+
+  document.addEventListener('visibilitychange', function(){
+    if(reduced) return;
+    if(document.hidden){ cancelAnimationFrame(raf); raf = null; }
+    else if(!raf){ raf = requestAnimationFrame(loop); }
+  });
+
+  /* ---------- Misc ---------- */
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
 </html>
