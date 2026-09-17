@@ -159,8 +159,8 @@ h1.big em{font-style:italic;color:var(--accent);font-weight:500}
 .sub{max-width:58ch;margin:0 auto;color:var(--muted);font-size:.98rem}
 
 .counts{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-  margin:58px auto 0;max-width:760px;background:var(--border);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  margin:58px auto 0;max-width:620px;background:var(--border);
   border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
 }
 .count{background:var(--bg);padding:18px 12px}
@@ -281,7 +281,7 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
    ============================================================ */
 @media (max-width:860px){
   .hero{padding:112px 0 52px}
-  .counts{grid-template-columns:repeat(2,1fr);margin-top:40px}
+  .counts{margin-top:40px}
   .trail::before{left:25px;bottom:150px}
   .stop{grid-template-columns:50px 1fr;margin-bottom:26px;align-items:start}
   .node{grid-column:1;grid-row:1;justify-self:start;width:50px;height:50px}
@@ -294,6 +294,9 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
 }
 @media (max-width:520px){
   body{font-size:15.8px}
+  .count{padding:16px 6px}
+  .count b{font-size:1.5rem}
+  .count span{font-size:.68rem;letter-spacing:.03em}
   .shots.two{grid-template-columns:1fr}
   .stop{grid-template-columns:42px 1fr}
   .node{width:42px;height:42px}
@@ -345,6 +348,7 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
       <div class="count"><b>9</b><span>Journeys</span></div>
       <div class="count"><b>3</b><span>Countries</span></div>
       <div class="count"><b>6</b><span>Indian states</span></div>
+    </div>
   </div>
 </header>
 
@@ -562,10 +566,9 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
       </a>
 
       <!-- EDIT: replace YOUR-USERNAME with your Facebook handle -->
-      <a class="soc" href="https://www.facebook.com/animesh.hazra.282922" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+      <a class="soc" href="https://www.facebook.com/animesh.hazra.282922/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.9h-2.33v7.03C18.34 21.24 22 17.08 22 12.06z"/></svg>
       </a>
-
 
     </div>
   </section>
