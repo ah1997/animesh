@@ -440,6 +440,33 @@ section{padding:88px 0;position:relative}
 .social:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow)}
 .social svg{width:15px;height:15px;flex:none}
 
+  /* ---- closing invitation to journey.html ---- */
+.closing{
+  position:relative;text-align:center;max-width:740px;margin:0 auto;
+  padding:clamp(34px,5vw,52px) clamp(20px,5vw,54px);
+  border:1.5px dashed var(--border-strong);border-radius:22px;
+  background:var(--surface);box-shadow:var(--shadow);overflow:hidden;
+}
+.closing::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle at 1px 1px,var(--border-strong) 1px,transparent 0);
+  background-size:22px 22px;opacity:.5;
+  -webkit-mask-image:radial-gradient(75% 65% at 50% 0%,#000,transparent 72%);
+  mask-image:radial-gradient(75% 65% at 50% 0%,#000,transparent 72%);
+}
+.closing > *{position:relative;z-index:2}
+.closing-ico{
+  width:58px;height:58px;margin:0 auto 20px;border-radius:99px;
+  display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);
+  transition:transform .4s var(--ease);
+}
+.closing:hover .closing-ico{transform:rotate(-12deg) scale(1.06)}
+.closing-ico svg{width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.closing h2{font-size:clamp(1.55rem,3.6vw,2.15rem);margin-bottom:.45em}
+.closing p{color:var(--muted);max-width:54ch;margin:0 auto 1.1em;font-size:1rem}
+.closing .btn{margin-top:10px}
+.closing-note{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:16px 0 0!important} 
+
 footer{padding:34px 0;border-top:1px solid var(--border);background:var(--bg)}
 .foot-in{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;font-size:.83rem;color:var(--muted)}
 .to-top{display:inline-flex;align-items:center;gap:6px;color:var(--muted)}
@@ -1060,6 +1087,27 @@ footer{padding:34px 0;border-top:1px solid var(--border);background:var(--bg)}
   </div>
 </section>
 
+<!-- ========================= CLOSING · LIFE & JOURNEYS ========================= -->
+<section id="journeys" class="band">
+  <div class="wrap">
+    <div class="closing rv">
+      <div class="closing-ico">
+        <!-- compass: the "there is more to explore" mark -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="m15.6 8.4-2 5.2-5.2 2 2-5.2z"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+      </div>
+      <h2>Thanks for reading this far</h2>
+      <p>Thank you for coming all the way to the end of my page. If you would also like to see the other side of it &mdash; the mountains, the long rides and the trips squeezed in around conferences &mdash; my personal travel journey is one click away.</p>
+      <a class="btn btn-journey" href="journey.html" target="_blank" rel="noopener">
+        <!-- route: two waypoints joined by a dashed trail -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5.5" cy="19" r="2.4"/><circle cx="18.5" cy="5" r="2.4"/><path d="M8 19h6a4 4 0 0 0 0-8h-4a4 4 0 0 1 0-8h6" stroke-dasharray="2.8 2.8"/></svg>
+        Life &amp; Journeys
+      </a>
+      <p class="closing-note">Opens in a new tab</p>
+    </div>
+  </div>
+</section>
+
+   
 <footer>
   <div class="wrap foot-in">
     <span>&copy; <span id="yr">2026</span> Animesh Hazra &middot; Built with plain HTML &amp; CSS</span>
