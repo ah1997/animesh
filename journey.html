@@ -242,6 +242,38 @@ h1.big em{font-style:italic;color:var(--accent);font-weight:500}
     linear-gradient(135deg,transparent 52%,var(--border-strong) 52%,var(--border-strong) 62%,transparent 62%);
 }
 
+/* ---- route / altitude panel opposite the card ---- */
+.stop.split .route-card{grid-column:3;grid-row:1;margin-left:22px;padding:22px 20px 18px}
+.stop.split::before{
+  content:'';position:absolute;top:50%;width:46px;
+  border-top:2px dotted var(--dash);left:50%;margin-left:25px;
+}
+.route-head{display:flex;align-items:center;gap:9px;margin-bottom:4px}
+.route-head svg{width:17px;height:17px;flex:none;fill:none;stroke:var(--accent);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.route-head h4{font-family:var(--font-display);font-size:1.06rem;font-weight:600;margin:0}
+.route-sub{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 12px 26px}
+
+.profile{width:100%;height:auto;display:block;margin-bottom:6px;overflow:visible}
+.profile .gridline{stroke:var(--border);stroke-width:1}
+.profile .tick{fill:var(--muted);font-family:var(--font-mono);font-size:8px;text-anchor:end}
+.profile .area{fill:var(--accent);opacity:.11}
+.profile .track{fill:none;stroke:var(--accent);stroke-width:2.1;stroke-linejoin:round;stroke-linecap:round}
+.profile .dot{fill:var(--surface);stroke:var(--accent);stroke-width:1.6}
+.profile .dayline{stroke:var(--border-strong);stroke-width:1;stroke-dasharray:2 3}
+.profile .daylab{fill:var(--muted);font-family:var(--font-mono);font-size:8.5px;text-anchor:middle;letter-spacing:.04em}
+.profile .peak{fill:var(--accent);font-family:var(--font-mono);font-size:9px;text-anchor:middle}
+.profile .unit{fill:var(--muted);font-family:var(--font-mono);font-size:8px;text-anchor:start}
+
+.itin{list-style:none;margin:14px 0 0;padding:0;border-top:1px dashed var(--border-strong)}
+.itin li{
+  display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:baseline;
+  padding:7px 0;border-bottom:1px dashed var(--border);
+}
+.itin li:last-child{border-bottom:0;padding-bottom:0}
+.itin b{font-family:var(--font-mono);font-size:.69rem;color:var(--accent);font-weight:500;letter-spacing:.03em;white-space:nowrap}
+.itin span{font-size:.845rem;color:var(--text-2);line-height:1.5}
+.itin em{font-style:normal;color:var(--muted);font-size:.93em}
+
 /* trail end */
 .trail-end{position:relative;text-align:center;padding-top:26px}
 .trail-end .node{margin:0 auto;border-style:dotted}
@@ -288,6 +320,8 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
   .stop::after{top:25px;width:22px}
   .stop.left::after,.stop.right::after{left:50px;right:auto;margin:0}
   .stop.left .card,.stop.right .card{grid-column:2;margin:0 0 0 24px}
+  .stop.split .route-card{grid-column:2;grid-row:2;margin:16px 0 0 24px}
+  .stop.split::before{display:none}
   .stop.left.rv,.stop.right.rv{transform:translateY(24px)}
   .trail-end{text-align:left;padding-left:0}
   .trail-end .node{margin:0}
@@ -298,6 +332,12 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
   .count b{font-size:1.5rem}
   .count span{font-size:.68rem;letter-spacing:.03em}
   .shots.two{grid-template-columns:1fr}
+  /* the SVG shrinks on phones, so scale its type up in user units */
+  .route-sub{font-size:.62rem;letter-spacing:.06em}
+  .profile .tick,.profile .unit{font-size:15px}
+  .profile .daylab{font-size:16px}
+  .profile .peak{font-size:16px}
+  .itin li{grid-template-columns:1fr;gap:2px}
   .stop{grid-template-columns:42px 1fr}
   .node{width:42px;height:42px}
   .node svg{width:18px;height:18px}
@@ -357,12 +397,12 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
   <div class="trail">
 
     <!-- ---------- 2023 · North Sikkim ---------- -->
-    <article class="stop left rv">
+    <article class="stop left split rv">
       <div class="node">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 19 6-11 4 7 2.5-4L21 19z"/><path d="M8.2 9.4 10 6.5"/></svg>
       </div>
       <div class="card">
-        <span class="when">07 &ndash; 14 April 2024</span>
+        <span class="when">2023</span>
         <h3>North Sikkim</h3>
         <div class="where">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
@@ -375,6 +415,7 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
           <figure class="shot"><img src="tphotos/north-sikkim-2.jpg" alt="North Sikkim" loading="lazy" onerror="this.closest('.shot').classList.add('empty');this.remove()"><figcaption>tphotos/north-sikkim-2.jpg</figcaption></figure>
         </div>
       </div>
+
       <!-- ===== route + altitude schematic =====
            Waypoints in order: NJP 114 · Gangtok 1650 · Lachen 2750 · Kala Patthar 3100 ·
            Gurudongmar 5430 · Lachung 2700 · Yumthang 3575 · Zero Point 4600 ·
@@ -387,7 +428,7 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
           <h4>The route, day by day</h4>
         </div>
         <p class="route-sub">Altitude profile &middot; 7 days</p>
- 
+
         <svg class="profile" viewBox="0 0 620 292" role="img" aria-label="Altitude profile of the seven-day North Sikkim route, rising from New Jalpaiguri at 114 metres to Gurudongmar Lake at 5430 metres and back">
           <!-- altitude gridlines -->
           <g class="gridline">
@@ -407,7 +448,7 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
             <text x="40" y="56">5k</text>
           </g>
           <text class="unit" x="16" y="24">metres</text>
- 
+
           <!-- day dividers -->
           <g class="dayline">
             <line x1="92.2" y1="30" x2="92.2" y2="245"/>
@@ -417,12 +458,12 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
             <line x1="461.5" y1="30" x2="461.5" y2="245"/>
             <line x1="553.8" y1="30" x2="553.8" y2="245"/>
           </g>
- 
+
           <!-- filled area under the route -->
           <polygon class="area" points="46,245 46,240.6 92.2,181.7 138.3,139.4 184.5,126 230.7,36.5 276.8,141.3 323,107.7 369.2,68.4 415.3,141.3 461.5,181.7 507.7,100.9 553.8,181.7 600,240.6 600,245"/>
           <!-- the route itself -->
           <polyline class="track" points="46,240.6 92.2,181.7 138.3,139.4 184.5,126 230.7,36.5 276.8,141.3 323,107.7 369.2,68.4 415.3,141.3 461.5,181.7 507.7,100.9 553.8,181.7 600,240.6"/>
- 
+
           <!-- waypoints -->
           <g class="dot">
             <circle cx="46" cy="240.6" r="3"/>
@@ -439,10 +480,10 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
             <circle cx="553.8" cy="181.7" r="3"/>
             <circle cx="600" cy="240.6" r="3"/>
           </g>
- 
+
           <!-- highest point -->
           <text class="peak" x="230.7" y="22">Gurudongmar &middot; 5,430 m</text>
- 
+
           <!-- day bands -->
           <g class="daylab">
             <text x="69.1" y="262">D1</text>
@@ -460,7 +501,7 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
             <text x="600" y="282">NJP, 114 m</text>
           </g>
         </svg>
- 
+
         <ol class="itin">
           <li><b>Day 1</b><span>NJP station &rarr; <strong>Gangtok</strong> &mdash; <em>sightseeing, overnight</em></span></li>
           <li><b>Day 2</b><span>Gangtok &rarr; <strong>Lachen</strong> &mdash; <em>overnight</em></span></li>
@@ -662,7 +703,7 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
       </a>
 
       <!-- EDIT: replace YOUR-USERNAME with your Facebook handle -->
-      <a class="soc" href="https://www.facebook.com/animesh.hazra.282922/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+      <a class="soc" href="https://www.facebook.com/animesh.hazra.282922" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.9h-2.33v7.03C18.34 21.24 22 17.08 22 12.06z"/></svg>
       </a>
 
