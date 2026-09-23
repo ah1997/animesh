@@ -375,6 +375,102 @@ footer{padding:34px 0;margin-top:70px;border-top:1px solid var(--border)}
           <figure class="shot"><img src="tphotos/north-sikkim-2.jpg" alt="North Sikkim" loading="lazy" onerror="this.closest('.shot').classList.add('empty');this.remove()"><figcaption>tphotos/north-sikkim-2.jpg</figcaption></figure>
         </div>
       </div>
+      <!-- ===== route + altitude schematic =====
+           Waypoints in order: NJP 114 · Gangtok 1650 · Lachen 2750 · Kala Patthar 3100 ·
+           Gurudongmar 5430 · Lachung 2700 · Yumthang 3575 · Zero Point 4600 ·
+           Lachung 2700 · Gangtok 1650 · Tsomgo 3753 · Gangtok 1650 · NJP 114  (metres, approx.)
+           To change a point, edit its y in BOTH the .area and .track point lists:
+           y = 245 - (altitude / 5600) * 215                                  -->
+      <aside class="card route-card">
+        <div class="route-head">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 18 5-9 3.5 5.5L15 9l6 9z"/><path d="M12 3v3M10.5 4.5h3"/></svg>
+          <h4>The route, day by day</h4>
+        </div>
+        <p class="route-sub">Altitude profile &middot; 7 days</p>
+ 
+        <svg class="profile" viewBox="0 0 620 292" role="img" aria-label="Altitude profile of the seven-day North Sikkim route, rising from New Jalpaiguri at 114 metres to Gurudongmar Lake at 5430 metres and back">
+          <!-- altitude gridlines -->
+          <g class="gridline">
+            <line x1="46" y1="245" x2="600" y2="245"/>
+            <line x1="46" y1="206.6" x2="600" y2="206.6"/>
+            <line x1="46" y1="168.2" x2="600" y2="168.2"/>
+            <line x1="46" y1="129.8" x2="600" y2="129.8"/>
+            <line x1="46" y1="91.4" x2="600" y2="91.4"/>
+            <line x1="46" y1="53" x2="600" y2="53"/>
+          </g>
+          <g class="tick">
+            <text x="40" y="248">0</text>
+            <text x="40" y="209.6">1k</text>
+            <text x="40" y="171.2">2k</text>
+            <text x="40" y="132.8">3k</text>
+            <text x="40" y="94.4">4k</text>
+            <text x="40" y="56">5k</text>
+          </g>
+          <text class="unit" x="16" y="24">metres</text>
+ 
+          <!-- day dividers -->
+          <g class="dayline">
+            <line x1="92.2" y1="30" x2="92.2" y2="245"/>
+            <line x1="138.3" y1="30" x2="138.3" y2="245"/>
+            <line x1="276.8" y1="30" x2="276.8" y2="245"/>
+            <line x1="415.3" y1="30" x2="415.3" y2="245"/>
+            <line x1="461.5" y1="30" x2="461.5" y2="245"/>
+            <line x1="553.8" y1="30" x2="553.8" y2="245"/>
+          </g>
+ 
+          <!-- filled area under the route -->
+          <polygon class="area" points="46,245 46,240.6 92.2,181.7 138.3,139.4 184.5,126 230.7,36.5 276.8,141.3 323,107.7 369.2,68.4 415.3,141.3 461.5,181.7 507.7,100.9 553.8,181.7 600,240.6 600,245"/>
+          <!-- the route itself -->
+          <polyline class="track" points="46,240.6 92.2,181.7 138.3,139.4 184.5,126 230.7,36.5 276.8,141.3 323,107.7 369.2,68.4 415.3,141.3 461.5,181.7 507.7,100.9 553.8,181.7 600,240.6"/>
+ 
+          <!-- waypoints -->
+          <g class="dot">
+            <circle cx="46" cy="240.6" r="3"/>
+            <circle cx="92.2" cy="181.7" r="3"/>
+            <circle cx="138.3" cy="139.4" r="3"/>
+            <circle cx="184.5" cy="126" r="3"/>
+            <circle cx="230.7" cy="36.5" r="4.2"/>
+            <circle cx="276.8" cy="141.3" r="3"/>
+            <circle cx="323" cy="107.7" r="3"/>
+            <circle cx="369.2" cy="68.4" r="3"/>
+            <circle cx="415.3" cy="141.3" r="3"/>
+            <circle cx="461.5" cy="181.7" r="3"/>
+            <circle cx="507.7" cy="100.9" r="3"/>
+            <circle cx="553.8" cy="181.7" r="3"/>
+            <circle cx="600" cy="240.6" r="3"/>
+          </g>
+ 
+          <!-- highest point -->
+          <text class="peak" x="230.7" y="22">Gurudongmar &middot; 5,430 m</text>
+ 
+          <!-- day bands -->
+          <g class="daylab">
+            <text x="69.1" y="262">D1</text>
+            <text x="115.2" y="262">D2</text>
+            <text x="207.6" y="262">D3</text>
+            <text x="346.1" y="262">D4</text>
+            <text x="438.4" y="262">D5</text>
+            <text x="507.7" y="262">D6</text>
+            <text x="576.9" y="262">D7</text>
+          </g>
+          <g class="tick" style="text-anchor:start">
+            <text x="46" y="282">NJP, 114 m</text>
+          </g>
+          <g class="tick">
+            <text x="600" y="282">NJP, 114 m</text>
+          </g>
+        </svg>
+ 
+        <ol class="itin">
+          <li><b>Day 1</b><span>NJP station &rarr; <strong>Gangtok</strong> &mdash; <em>sightseeing, overnight</em></span></li>
+          <li><b>Day 2</b><span>Gangtok &rarr; <strong>Lachen</strong> &mdash; <em>overnight</em></span></li>
+          <li><b>Day 3</b><span>Lachen &rarr; Kala Patthar &rarr; Gurudongmar Lake &rarr; <strong>Lachung</strong> &mdash; <em>overnight</em></span></li>
+          <li><b>Day 4</b><span>Lachung &rarr; Yumthang Valley &rarr; Zero Point &rarr; <strong>Lachung</strong> &mdash; <em>overnight</em></span></li>
+          <li><b>Day 5</b><span>Lachung &rarr; <strong>Gangtok</strong> &mdash; <em>overnight</em></span></li>
+          <li><b>Day 6</b><span>Gangtok &rarr; Tsomgo (Changu) Lake &rarr; <strong>Gangtok</strong></span></li>
+          <li><b>Day 7</b><span>Gangtok &rarr; <strong>New Jalpaiguri (NJP)</strong></span></li>
+        </ol>
+      </aside>
     </article>
 
     <!-- ---------- Mar 2024 · Rishab, Darjeeling ---------- -->
