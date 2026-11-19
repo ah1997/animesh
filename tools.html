@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Useful Tools — Animesh Hazra</title>
-<meta name="description" content="A plain calculator plus SIP and EMI calculators — simple everyday tools, no tracking, no sign-up.">
+<meta name="description" content="Handy browser extensions plus everyday calculators — basic, SIP, lumpsum and EMI. No tracking, no sign-up.">
 <meta name="author" content="Animesh Hazra">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AE%3C/text%3E%3C/svg%3E">
 
@@ -263,6 +263,18 @@ input[type=range]::-moz-range-thumb{
    8b. BROWSER EXTENSIONS
    ============================================================ */
 .ext{scroll-margin-top:40px;max-width:960px;margin:72px auto 0;padding-top:48px;border-top:1px solid var(--border)}
+.ext.first{margin-top:16px;padding-top:0;border-top:0;scroll-margin-top:90px}
+.calcs .sec-head{margin-bottom:0}
+
+/* SIP / Lumpsum switch */
+.mode{display:inline-flex;gap:2px;padding:3px;margin:2px 0 20px;border:1px solid var(--border);border-radius:99px;background:var(--surface-2)}
+.mode button{
+  border:0;background:transparent;color:var(--muted);cursor:pointer;
+  font-family:inherit;font-size:.84rem;font-weight:550;padding:6px 16px;border-radius:99px;
+  transition:background-color .2s,color .2s;
+}
+.mode button:hover{color:var(--text)}
+.mode button[aria-pressed="true"]{background:var(--surface);color:var(--accent);box-shadow:var(--shadow)}
 .sec-head{text-align:center;margin-bottom:28px}
 .sec-head h2{font-size:clamp(1.6rem,4vw,2.2rem);letter-spacing:-.03em;margin-bottom:.35em}
 .sec-head h2 em{font-style:italic;color:var(--accent);font-weight:500}
@@ -342,10 +354,76 @@ footer{padding:30px 0;border-top:1px solid var(--border)}
   <div class="wrap">
     <span class="eyebrow">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2.5" width="16" height="19" rx="2.5"/><path d="M8 7h8M8 12h2M12 12h2M16 12h0M8 16.5h2M12 16.5h2M16 16.5h0"/></svg>
-      Everyday calculators
+      Extensions &amp; calculators
     </span>
     <h1 class="big">Useful <em>Tools</em></h1>
-    <p class="lede">A plain calculator, plus the two I reach for most often &mdash; SIP and EMI. Everything runs in your browser; nothing is stored or sent anywhere. Further down you'll find a few <a href="#extensions">browser extensions</a> I've built.</p>
+    <p class="lede">A few <a href="#extensions">browser extensions</a> I've built, followed by everyday <a href="#calculators">calculators</a> &mdash; a plain calculator plus SIP, lumpsum and EMI.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ===================== BROWSER EXTENSIONS ===================== -->
+  <section class="ext first" id="extensions" aria-labelledby="ext-title">
+    <div class="sec-head">
+      <h2 id="ext-title">Useful <em>browser extensions</em></h2>
+      <p>Small Chrome extensions I built for my own work. They run entirely in your browser and aren't on the Chrome Web Store, so you install them by hand.</p>
+    </div>
+
+    <div class="card howto">
+      <h2>How to install</h2>
+      <p class="card-sub">Chrome &middot; Edge &middot; Brave &middot; about a minute</p>
+      <p class="intro">Each extension comes as a <code>.zip</code> file. You unzip it, switch on Developer mode, and point the browser at the unzipped folder.</p>
+      <ol class="steps">
+        <li><span><b>Download</b> the extension's <code>.zip</code> file using the button on its card below.</span></li>
+        <li><span><b>Unzip it</b> by double-clicking the file. Move the folder somewhere permanent, such as <code>Documents</code>. The browser loads the extension from this folder, so don't delete it later.</span></li>
+        <li><span><b>Open the extensions page</b> by typing <code>chrome://extensions</code> in the address bar. In Edge use <code>edge://extensions</code>; in Brave use <code>brave://extensions</code>.</span></li>
+        <li><span><b>Turn on Developer mode</b> with the toggle in the top-right corner (bottom-left in Edge).</span></li>
+        <li><span><b>Click &ldquo;Load unpacked&rdquo;</b> and select the unzipped folder, the one that contains <code>manifest.json</code>.</span></li>
+        <li><span><b>Pin it</b> by clicking the puzzle-piece icon in the toolbar, then the pin next to the extension. Its icon now sits in your toolbar, ready to click.</span></li>
+      </ol>
+      <p class="note">To update, replace the folder with the new version and click the &#10227; reload button on the extension's card in <code>chrome://extensions</code>. To remove it, click <b>Remove</b> there.</p>
+    </div>
+
+    <div class="ext-grid">
+      <article class="card ext-card">
+        <div class="ico"><img src="extensions/bibtex-icon128.png" alt="" width="30" height="30"></div>
+        <h2>Cite It &mdash; BibTeX</h2>
+        <p class="card-sub">Citations &middot; v1.0</p>
+        <p class="desc">Click the icon on any page to get a ready-to-edit BibTeX entry: <code>@article</code>, <code>@book</code> or <code>@misc</code>. It reads DOI and journal metadata from publisher sites, arXiv and PubMed, and has a Wikipedia mode. Then copy it or download a <code>.bib</code> file.</p>
+        <a class="btn" href="extensions/bibtex-cite-extension.zip" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+          Download .zip
+        </a>
+      </article>
+
+      <article class="card ext-card">
+        <div class="ico"><img src="extensions/quick-notes-icon128.png" alt="" width="30" height="30"></div>
+        <h2>Quick Notes</h2>
+        <p class="card-sub">Notes &middot; v1.0</p>
+        <p class="desc">Jot down a note from your toolbar without leaving the page. You can search, edit, copy and delete notes; <kbd>Ctrl</kbd>/<kbd>&#8984;</kbd>&nbsp;+&nbsp;<kbd>Enter</kbd> saves. Notes are stored in your browser and sync with your Chrome profile.</p>
+        <a class="btn" href="extensions/quick-notes-extension.zip" download>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+          Download .zip
+        </a>
+      </article>
+
+      <article class="card ext-card soon">
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div>
+        <h2>More to come</h2>
+        <p class="card-sub">To be added</p>
+        <p class="desc">More small tools will be added here as I build them.</p>
+        <span class="badge">To be added</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== CALCULATORS ===================== -->
+  <section class="ext calcs" id="calculators" aria-labelledby="calc-title">
+    <div class="sec-head">
+      <h2 id="calc-title">Everyday <em>calculators</em></h2>
+      <p>A plain calculator, plus the ones I reach for most often &mdash; SIP, lumpsum and EMI. Everything runs in your browser; nothing is stored or sent anywhere.</p>
+    </div>
 
     <div class="tabs" role="tablist" aria-label="Choose a calculator">
       <button class="tab" role="tab" id="tab-basic" aria-controls="p-basic" aria-selected="true" type="button">
@@ -354,17 +432,13 @@ footer{padding:30px 0;border-top:1px solid var(--border)}
       </button>
       <button class="tab" role="tab" id="tab-sip" aria-controls="p-sip" aria-selected="false" type="button">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="m7.5 15 4-4.5 3 2.5 5-6.5"/></svg>
-        SIP
+        SIP &amp; Lumpsum
       </button>
       <button class="tab" role="tab" id="tab-emi" aria-controls="p-emi" aria-selected="false" type="button">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.5"/><path d="M2.5 10h19M6 14.5h3"/></svg>
         EMI
       </button>
     </div>
-  </div>
-</header>
-
-<main class="wrap">
 
   <!-- ===================== BASIC CALCULATOR ===================== -->
   <section class="panel" id="p-basic" role="tabpanel" aria-labelledby="tab-basic">
@@ -413,12 +487,17 @@ footer{padding:30px 0;border-top:1px solid var(--border)}
     <div class="calc-grid">
 
       <div class="card">
-        <h2>SIP calculator</h2>
-        <p class="card-sub">Monthly investment &middot; compounded monthly</p>
+        <h2 id="sipTitle">SIP calculator</h2>
+        <p class="card-sub" id="sipSub">Monthly investment &middot; compounded monthly</p>
+
+        <div class="mode" role="group" aria-label="Investment type">
+          <button type="button" data-mode="sip" aria-pressed="true">SIP</button>
+          <button type="button" data-mode="lump" aria-pressed="false">Lumpsum</button>
+        </div>
 
         <div class="field">
           <div class="field-top">
-            <label for="sipAmt">Monthly investment</label>
+            <label for="sipAmt" id="sipAmtLbl">Monthly investment</label>
             <span class="num-wrap"><span>&#8377;</span><input type="number" id="sipAmt" value="10000" min="100" max="500000" step="500"></span>
           </div>
           <input type="range" id="sipAmtR" min="500" max="200000" step="500" value="10000" aria-label="Monthly investment slider">
@@ -462,7 +541,7 @@ footer{padding:30px 0;border-top:1px solid var(--border)}
           <span class="lg"><i class="b"></i>Est. returns <b id="sipLgB">&#8377;0</b><s id="sipPctB">0%</s></span>
         </div>
 
-        <p class="note">Assumes a fixed annual return compounded monthly, with each instalment paid at the start of the month. Real returns vary; this is an estimate, not a projection.</p>
+        <p class="note" id="sipNote">Assumes a fixed annual return compounded monthly, with each instalment paid at the start of the month. Real returns vary; this is an estimate, not a projection.</p>
       </div>
     </div>
   </section>
@@ -525,60 +604,6 @@ footer{padding:30px 0;border-top:1px solid var(--border)}
       </div>
     </div>
   </section>
-
-  <!-- ===================== BROWSER EXTENSIONS ===================== -->
-  <section class="ext" id="extensions" aria-labelledby="ext-title">
-    <div class="sec-head">
-      <h2 id="ext-title">Useful <em>browser extensions</em></h2>
-      <p>Small Chrome extensions I built for my own work. They run entirely in your browser and aren't on the Chrome Web Store, so you install them by hand.</p>
-    </div>
-
-    <div class="card howto">
-      <h2>How to install</h2>
-      <p class="card-sub">Chrome &middot; Edge &middot; Brave &middot; about a minute</p>
-      <p class="intro">Each extension comes as a <code>.zip</code> file. You unzip it, switch on Developer mode, and point the browser at the unzipped folder.</p>
-      <ol class="steps">
-        <li><span><b>Download</b> the extension's <code>.zip</code> file using the button on its card below.</span></li>
-        <li><span><b>Unzip it</b> by double-clicking the file. Move the folder somewhere permanent, such as <code>Documents</code>. The browser loads the extension from this folder, so don't delete it later.</span></li>
-        <li><span><b>Open the extensions page</b> by typing <code>chrome://extensions</code> in the address bar. In Edge use <code>edge://extensions</code>; in Brave use <code>brave://extensions</code>.</span></li>
-        <li><span><b>Turn on Developer mode</b> with the toggle in the top-right corner (bottom-left in Edge).</span></li>
-        <li><span><b>Click &ldquo;Load unpacked&rdquo;</b> and select the unzipped folder, the one that contains <code>manifest.json</code>.</span></li>
-        <li><span><b>Pin it</b> by clicking the puzzle-piece icon in the toolbar, then the pin next to the extension. Its icon now sits in your toolbar, ready to click.</span></li>
-      </ol>
-      <p class="note">To update, replace the folder with the new version and click the &#10227; reload button on the extension's card in <code>chrome://extensions</code>. To remove it, click <b>Remove</b> there.</p>
-    </div>
-
-    <div class="ext-grid">
-      <article class="card ext-card">
-        <div class="ico"><img src="extensions/bibtex-icon128.png" alt="" width="30" height="30"></div>
-        <h2>Cite It &mdash; BibTeX</h2>
-        <p class="card-sub">Citations &middot; v1.0</p>
-        <p class="desc">Click the icon on any page to get a ready-to-edit BibTeX entry: <code>@article</code>, <code>@book</code> or <code>@misc</code>. It reads DOI and journal metadata from publisher sites, arXiv and PubMed, and has a Wikipedia mode. Then copy it or download a <code>.bib</code> file.</p>
-        <a class="btn" href="extensions/bibtex-cite-extension.zip" download>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
-          Download .zip
-        </a>
-      </article>
-
-      <article class="card ext-card">
-        <div class="ico"><img src="extensions/quick-notes-icon128.png" alt="" width="30" height="30"></div>
-        <h2>Quick Notes</h2>
-        <p class="card-sub">Notes &middot; v1.0</p>
-        <p class="desc">Jot down a note from your toolbar without leaving the page. You can search, edit, copy and delete notes; <kbd>Ctrl</kbd>/<kbd>&#8984;</kbd>&nbsp;+&nbsp;<kbd>Enter</kbd> saves. Notes are stored in your browser and sync with your Chrome profile.</p>
-        <a class="btn" href="extensions/quick-notes-extension.zip" download>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
-          Download .zip
-        </a>
-      </article>
-
-      <article class="card ext-card soon">
-        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div>
-        <h2>More to come</h2>
-        <p class="card-sub">To be added</p>
-        <p class="desc">More small tools will be added here as I build them.</p>
-        <span class="badge">To be added</span>
-      </article>
-    </div>
   </section>
 
 </main>
@@ -768,13 +793,34 @@ footer{padding:30px 0;border-top:1px solid var(--border)}
   /* =========================================================
      SIP
      ========================================================= */
+  /* SIP and Lumpsum share one card; a switch picks the mode */
+  var mode = 'sip';
+  var MODES = {
+    sip:  { title:'SIP calculator', sub:'Monthly investment &middot; compounded monthly',
+            label:'Monthly investment', val:10000, min:100, max:500000, step:500,
+            rMin:500, rMax:200000, rStep:500,
+            note:'Assumes a fixed annual return compounded monthly, with each instalment paid at the start of the month. Real returns vary; this is an estimate, not a projection.' },
+    lump: { title:'Lumpsum calculator', sub:'One-time investment &middot; compounded yearly',
+            label:'Total investment', val:100000, min:1000, max:100000000, step:1000,
+            rMin:5000, rMax:10000000, rStep:5000,
+            note:'Assumes a single investment made today, growing at a fixed annual return compounded once a year. Real returns vary; this is an estimate, not a projection.' }
+  };
+  var amtBox = document.getElementById('sipAmt'), amtRange = document.getElementById('sipAmtR');
+
   var sipAmt, sipRate, sipYrs;
   function sip(){
     var P = sipAmt(), r = sipRate(), y = sipYrs();
     if(P < 0) P = 0;
-    var n = Math.round(y * 12), i = r / 100 / 12;
-    var fv = (i > 0) ? P * ((Math.pow(1 + i, n) - 1) / i) * (1 + i) : P * n;
-    var inv = P * n, ret = fv - inv;
+    var fv, inv;
+    if(mode === 'lump'){
+      fv = P * Math.pow(1 + r / 100, y);
+      inv = P;
+    } else {
+      var n = Math.round(y * 12), i = r / 100 / 12;
+      fv = (i > 0) ? P * ((Math.pow(1 + i, n) - 1) / i) * (1 + i) : P * n;
+      inv = P * n;
+    }
+    var ret = fv - inv;
     if(!isFinite(fv)){ fv = 0; inv = 0; ret = 0; }
     document.getElementById('sipTotal').textContent = money(fv);
     document.getElementById('sipInv').textContent = money(inv);
@@ -785,6 +831,28 @@ footer{padding:30px 0;border-top:1px solid var(--border)}
   sipAmt  = link('sipAmt','sipAmtR', sip);
   sipRate = link('sipRate','sipRateR', sip);
   sipYrs  = link('sipYrs','sipYrsR', sip);
+
+  function setMode(m){
+    MODES[mode].val = sipAmt();          // remember the amount typed in the old mode
+    mode = m;
+    var c = MODES[m];
+    document.getElementById('sipTitle').textContent = c.title;
+    document.getElementById('sipSub').innerHTML = c.sub;
+    document.getElementById('sipAmtLbl').textContent = c.label;
+    document.getElementById('sipNote').textContent = c.note;
+    amtBox.min = c.min; amtBox.max = c.max; amtBox.step = c.step;
+    amtRange.min = c.rMin; amtRange.max = c.rMax; amtRange.step = c.rStep;
+    amtRange.setAttribute('aria-label', c.label + ' slider');
+    amtBox.value = c.val;
+    amtRange.value = Math.min(Math.max(c.val, c.rMin), c.rMax);
+    document.querySelectorAll('.mode button').forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.mode === m ? 'true' : 'false');
+    });
+    sip();
+  }
+  document.querySelectorAll('.mode button').forEach(function(b){
+    b.addEventListener('click', function(){ if(b.dataset.mode !== mode) setMode(b.dataset.mode); });
+  });
   sip();
 
   /* =========================================================
